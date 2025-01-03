@@ -19,20 +19,20 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test Stat',
             'email' => 'teststat@example.com',
             'password'=>'Pass12word',
-            'jogosultsag'=>2
+            'role'=>2
         ]);
 
         User::factory()->create([
             'name' => 'Test Doku',
             'email' => 'testdoku@example.com',
             'password'=>'Pass13word',
-            'jogosultsag'=>1
+            'role'=>1
         ]);
         User::factory()->create([
             'name' => 'Test Admin',
             'email' => 'testadmin@example.com',
             'password'=>'Pass14word',
-            'jogosultsag'=>0
+            'role'=>0
         ]);
     }
 }
