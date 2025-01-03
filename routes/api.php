@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MegvalositasiHelyszinController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
@@ -8,6 +9,7 @@ Route::middleware('auth:sanctum')->post('/user/update/{id}', [UserController::cl
 // Csak admin hozzáférés
 Route::middleware(['auth:api', 'role:admin'])->get('/admin', function () {
     return response()->json(['message' => 'Admin Dashboard']);
+    Route::get('/megvalositasihelyzinek', [MegvalositasiHelyszinController::class,'index']);
 });
 
 // Dokumentumellenőrző hozzáférés (admin és dokumentumellenőrző)

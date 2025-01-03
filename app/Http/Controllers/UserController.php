@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use Illuminate\Validation\Rules;
 
 class UserController extends Controller
 {
@@ -23,6 +24,13 @@ class UserController extends Controller
 
     public function updateUser(Request $request, $id)
     {
+
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ]);
+
         $felhasznalo = User::find($id);
         $felhasznalo->name = $request->name;
         $felhasznalo->email = $request->email;
