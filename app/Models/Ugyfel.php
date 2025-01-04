@@ -14,7 +14,7 @@ class Ugyfel extends Model
         'név',
         'születési név',
         'anyja neve',
-        'Születési hely',
+        'születési hely',
         'születési idő',
         'lakcím',
         'neme',

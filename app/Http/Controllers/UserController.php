@@ -39,6 +39,18 @@ class UserController extends Controller
 
         $felhasznalo->save();
     }
+
+    public function index()
+    {
+        $userek = response()->json(User::all());
+        return $userek;
+    }
+
+    public function show($id)
+    {
+        $user = response()->json(User::find($id));
+        return $user;
+    }
    
 }
 
