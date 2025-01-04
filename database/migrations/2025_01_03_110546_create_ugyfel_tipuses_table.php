@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('ugyfel_tipuses', function (Blueprint $table) {
             $table->id();
+            $table->integer('főtípus')->nullable()->default(null);
+            $table->string('elnevezés');
             $table->timestamps();
         });
     }

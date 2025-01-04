@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('dokumentum_tipuses', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('ügyfél_főtípus')->references('id')->on('ugyfel_tipuses');;
+            $table->string('elnevezés');
+            $table->boolean('opcionalis_e')->default(0);
+
             $table->timestamps();
         });
     }

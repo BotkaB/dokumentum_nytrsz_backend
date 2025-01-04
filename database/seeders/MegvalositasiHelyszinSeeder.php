@@ -356,5 +356,26 @@ class MegvalositasiHelyszinSeeder extends Seeder
          'régió' => 'konvergencia', 
          'típus' => 'bv', 
       ]);
+      DB::table('megvalositasi_helyszins')->insert([ 
+         'intézet'=>null,
+          'név' => 'Jász-Nagykun-Szolnok Vármegyei Közösségi Foglalkoztató', 
+          'agglomeráció'=>6,
+          'régió' => 'konvergencia', 
+          'típus' => 'kf', 
+       ]);
+       DB::table('megvalositasi_helyszins')->insert([ 
+         'intézet'=>null,
+          'név' => 'Hajdú-Bihar Vármegyei Közösségi Foglalkoztató', 
+          'agglomeráció'=>6,
+          'régió' => 'konvergencia', 
+          'típus' => 'kf', 
+       ]);
+       DB::table('megvalositasi_helyszins')->insert([ 
+         'intézet'=>null,
+          'név' => 'Szabolcs-Szatmár-Bereg Vármegyei Közösségi Foglalkoztató', 
+          'agglomeráció'=>6,
+          'régió' => 'konvergencia', 
+          'típus' => 'kf', 
+       ]);
     }
 }

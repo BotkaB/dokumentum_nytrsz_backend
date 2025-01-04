@@ -12,11 +12,16 @@ class DatabaseSeeder extends Seeder
      * Seed the application's database.
      */
     public function run(): void
-    {
+    { 
+        \App\Models\Ugyfel::factory(200)->create();
+       
         $this->call([ 
             UserSeeder::class, 
-            MegvalositasiHelyszinSeeder::class
+            MegvalositasiHelyszinSeeder::class,
+            UgyfelTipusSeeder::class,
+            DokumentumTipusSeeder::class,
            
-        ]);  
+        ]);
+        \App\Models\Elszamolas::factory(300)->create();  
     }
 }
