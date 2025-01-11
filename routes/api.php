@@ -26,19 +26,19 @@ Route::middleware('auth:sanctum')->post('/user/update/{id}', [UserController::cl
 
 Route::post('/register',[RegisteredUserController::class, 'store']);
 Route::post('/login',[AuthenticatedSessionController::class, 'store']);
-Route::post('/logout', [AuthenticatedSessionController::class, 'destroy']);
+//Route::post('/logout', [AuthenticatedSessionController::class, 'destroy']);
 
-Route::middleware(['auth:sanctum'])->group(function(){
-    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy']);
-});
+
 
 Route::middleware(['auth:sanctum'])
 ->group(function () {
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
-   
+    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy']);
 });
+
+
 
 
   
