@@ -18,25 +18,23 @@ use App\Http\Middleware\Admin;
 |
 */
 
-//Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
-//    return $request->user();
-//});
-Route::middleware('auth:sanctum')->get('/user', [UserController::class, 'getUser']);
+Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
+   return $request->user();
+});
+//Route::middleware('auth:sanctum')->get('/users', [UserController::class, 'getUser']);
 Route::middleware('auth:sanctum')->post('/user/update/{id}', [UserController::class, 'updateUser']);
 
-Route::post('/register',[RegisteredUserController::class, 'store']);
-Route::post('/login',[AuthenticatedSessionController::class, 'store']);
 
 
 
 
-Route::middleware(['auth:sanctum'])
+
+/* Route::middleware(['auth:sanctum'])
 ->group(function () {
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
-    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy']); 
-});
+    */
 
 
 
