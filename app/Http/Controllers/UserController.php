@@ -38,6 +38,9 @@ class UserController extends Controller
         $felhasznalo->role = $request->role;
 
         $felhasznalo->save();
+        return response()->json([
+            'user' => $felhasznalo
+        ]); 
     }
 
     public function index()
