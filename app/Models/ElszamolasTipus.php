@@ -15,4 +15,14 @@ class ElszamolasTipus extends Model
       
 
     ];
+
+ public function elszamolas()
+    {
+        return $this->hasMany(Elszamolas::class, 'elszamolas_tipus_id');
+    }
+
+    public function dokumentumTipus()
+    {
+        return $this->hasMany(DokumentumTipus::class, 'elszamolas_tipus_id');
+    }  
 }

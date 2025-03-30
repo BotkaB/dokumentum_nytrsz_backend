@@ -17,4 +17,9 @@ class DokumentumTipus extends Model
         'dokumentum_neve',
 
     ];
+
+    public function ugyfelTipusok()
+    {
+        return $this->belongsToMany(UgyfelTipus::class, 'ugyfel_tipusok_dokumentumai', 'dokumentum_tipus_id', 'ugyfel_tipus_id');
+    }
 }

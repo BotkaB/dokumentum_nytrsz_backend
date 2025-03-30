@@ -13,4 +13,6 @@ class UgyfeltipusokDokumentumai extends Model
         'dokumentum_tipus_id',
 
     ];
+
+    
 }

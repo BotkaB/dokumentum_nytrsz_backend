@@ -23,4 +23,17 @@ class Dokumentumok extends Model
         'ESZA+_azonosito'
     ];
 
+    public function megvalositasiHelyszin()
+    {
+        return $this->belongsTo(MegvalositasiHelyszin::class, 'megvalositashelyszin_id');
+    }
+    public function elszamolas()
+    {
+        return $this->belongsTo(Elszamolas::class, 'elszamolas_id');
+    }
+    public function dokumentumTipus()
+    {
+        return $this->belongsTo(DokumentumTipus::class, 'dokumentum_tipus_id');
+    }
+
 }

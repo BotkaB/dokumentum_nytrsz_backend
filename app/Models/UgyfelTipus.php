@@ -30,9 +30,10 @@ class UgyfelTipus extends Model
     {
         return $this->hasMany(Elszamolas::class, 'ugyfel_tipus_id');
     }
-    public function ugyfel()
+  
+    public function dokumentumTipusok()
     {
-        return $this->hasMany(Ugyfel::class, 'ugyfel_tipus_id');
+        return $this->belongsToMany(DokumentumTipus::class, 'ugyfel_tipusok_dokumentumai', 'ugyfel_tipus_id', 'dokumentum_tipus_id');
     }
 
 }

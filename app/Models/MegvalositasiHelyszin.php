@@ -34,8 +34,10 @@ public function children()
         return $this->hasMany(Elszamolas::class, 'megvalositasi_helyszin_id');
     }
 
-    public function intezetek()
+    public function dokumentum()
     {
-        return $this->hasMany(MegvalositasiHelyszin::class, 'megvalositasi_helyszin_id', 'intezet');
+        return $this->hasMany(Dokumentumok::class, 'megvalositasi_helyszin_id');
     }
+
+ 
 }
