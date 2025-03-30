@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('elszamolas_tipuses', function (Blueprint $table) {
             $table->id('elszamolas_tipus_id');
-            $table->enum('elszamolas_elnevezese', ['bevonás', 'max.alapfokú végzettségű', 'képzettséget szerzett']);
+            $table->enum('elszamolas_elnevezese', ['bevonás', 'max.alapfokú végzettségű', 'képzettséget szerzett'])->default('bevonás');
             $table->timestamps();
         });
     }

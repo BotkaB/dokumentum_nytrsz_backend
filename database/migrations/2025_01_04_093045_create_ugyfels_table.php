@@ -13,7 +13,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('ugyfels', function (Blueprint $table) {
-            $table->unique(['szuletesi_nev', 'anyja_neve', 'szuletesi_hely', 'szuletesi_ido'], 'unique_szuletesi_nev_anyja_neve');
+
             $table->id('ugyfel_id');
             $table->string('nev');
             $table->string('szuletesi_nev');
@@ -21,11 +21,15 @@ return new class extends Migration
             $table->string('szuletesi_hely');
             $table->date('szuletesi_ido');
             $table->string('telepules');
-            $table->enum('neme', ['férfi', 'nő']);
+            $table->enum('neme', ['férfi', 'nő'])->default('férfi');
             $table->bigInteger('ugyfelkod');
             $table->timestamps();
+            $table->unique(['szuletesi_nev', 'anyja_neve', 'szuletesi_hely', 'szuletesi_ido'], 'unique_szuletesi_nev_anyja_neve');
+       
+            
         });
-
+        DB::statement('ALTER TABLE ugyfels ADD CONSTRAINT check_neme CHECK (neme IN ("férfi", "nő"))');
+        DB::statement('ALTER TABLE ugyfels ADD CONSTRAINT check_szuletesi_ido CHECK (szuletesi_ido >= "1900-01-01" AND szuletesi_ido <= "2025-01-01")');
        
     }
 
@@ -34,7 +38,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-     
+
 
         // Drop the table
         Schema::dropIfExists('ugyfels');

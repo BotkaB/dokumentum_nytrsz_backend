@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -19,16 +20,23 @@ return new class extends Migration
             $table->string('eleresi_ut');
             $table->date('kitoltes_datuma');
             $table->dateTime('feltoltes_idopontja');  
-            $table->string('ellenorzes_statuszat');
-            $table->date('ellenorzes_datuma');
-            $table->date('rogzites_datuma');
+            $table->enum('ellenorzes_statusza', ['nincs ellenőrizve', 'hiánypótlás', 'elfogadva'])->default('nincs ellenőrizve');
+            $table->date('ellenorzes_datuma')->nullable();
+            $table->date('rogzites_datuma')->nullable();
             $table->string('ESZA+_azonosito')->nullable();
             $table->timestamps();
+
+           
         });
+
+        DB::statement('ALTER TABLE dokumentumoks ADD CONSTRAINT check_ellenorzes_statusza CHECK (ellenorzes_statusza IN ("nincs ellenőrizve", "hiánypótlás", "elfogadva"))');
+        DB::statement('ALTER TABLE dokumentumoks ADD CONSTRAINT check_kitoltes_datuma CHECK (kitoltes_datuma >= "2024-09-15" AND kitoltes_datuma <= "2045-01-01")');
+        DB::statement('ALTER TABLE dokumentumoks ADD CONSTRAINT check_ellenorzes_datuma CHECK (ellenorzes_datuma IS NULL OR (ellenorzes_datuma >= "2024-09-15" AND ellenorzes_datuma <= "2045-01-01"))');    
+
     }
 
     /**
-     * Reverse the migrations.
+     * Reverse the migrations. 
      */
     public function down(): void
     {
