@@ -31,7 +31,7 @@ return new class extends Migration
             DB::statement('ALTER TABLE elszamolas ADD CONSTRAINT check_elszamolhatosag_datum CHECK (elszamolhatosag_datum IS NULL OR (elszamolhatosag_datum >= "2024-09-15" AND elszamolhatosag_datum <= "2045-01-01"))');
             DB::statement('ALTER TABLE elszamolas ADD CONSTRAINT check_elszamolas_datum CHECK (elszamolas_datum IS NULL OR (elszamolas_datum >= "2024-09-15" AND elszamolas_datum <= "2045-01-01"))');
 
-
+            
     }        
             /**
      * Reverse the migrations.

@@ -3,15 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Elszamolas;
-use App\Http\Requests\ElszamolasRequest;  // Az új validálást használjuk
+use App\Http\Requests\ElszamolasRequest; 
 use Illuminate\Http\Request;
 
 class ElszamolasokController extends Controller
 {
-    // Új elszámolás létrehozása
+   
     public function createElszamolas(ElszamolasRequest $request)
     {
-        // A validálás már a form request osztályban megtörtént
+       
 
         $elszamolas = Elszamolas::create([
             'megvalositashelyszin_azon' => $request->input('megvalositashelyszin_azon'),

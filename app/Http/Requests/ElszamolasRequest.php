@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Models\Elszamolas;
 
 class ElszamolasRequest extends FormRequest
 {
@@ -49,5 +50,31 @@ class ElszamolasRequest extends FormRequest
             'elszamolas_datum.after_or_equal' => 'Az elszámolás dátuma 2024-09-15 után kell legyen.',
             'elszamolas_datum.before_or_equal' => 'Az elszámolás dátuma nem lehet később, mint 2045-01-01.',
         ];
+    }
+
+    public function withValidator($validator)
+    {
+        $validator->after(function ($validator) {
+            $ugyfel_id = $this->input('ugyfel_id');
+            $elszamolhatosag_allapota = $this->input('elszamolhatosag_allapota');
+            $elszamolas_tipus_id = $this->input('elszamolas_tipus_id');
+            
+            // Ha az új elszámolás 'elszámolható', akkor ellenőrizzük, hogy az ügyfélnek van-e már 'bevonás' típusú elszámolása, amely 'elszámolható' állapotú.
+            if ($elszamolhatosag_allapota === 'elszámolható') {
+                $existingElszamolas = Elszamolas::where('ugyfel_id', $ugyfel_id)
+                    ->where('elszamolas_tipus_id', function ($query) {
+                        $query->select('elszamolas_tipus_id')
+                            ->from('elszamolas_tipuses')
+                            ->where('elnevezes', 'bevonás');
+                    })
+                    ->where('elszamolhatosag_allapota', 'elszámolható')
+                    ->exists();
+
+               
+                if (!$existingElszamolas) {
+                    $validator->errors()->add('elszamolhatosag_allapota', 'Az ügyfélnek először egy "bevonás" típusú, "elszámolható" állapotú elszámolás szükséges.');
+                }
+            }
+        });
     }
 }
