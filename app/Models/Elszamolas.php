@@ -19,9 +19,7 @@ class Elszamolas extends Model
         'bevonas_datum',
         'kotelezo_dokumentumok_szama',
         'elszamolhatosag_datuma',
-        'elszamolas_allapota',   
+        'elszamolas_allapota',
         'elszamolas_datuma'
     ];
-
-    
 }

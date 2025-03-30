@@ -21,13 +21,12 @@ return new class extends Migration
             $table->string('szuletesi_hely');
             $table->date('szuletesi_ido');
             $table->string('telepules');
-            $table->char('neme', 5);
+            $table->enum('neme', ['férfi', 'nő']);
             $table->bigInteger('ugyfelkod');
             $table->timestamps();
         });
 
-        // Add the constraint after table creation
-        DB::statement('ALTER TABLE ugyfels ADD CONSTRAINT chk_ferfi_vagy_no_lehet_csak_megadva CHECK (neme = \'ferfi\' OR neme = \'no\');');
+       
     }
 
     /**
@@ -35,8 +34,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        // Drop the check constraint before dropping the table
-        DB::statement('ALTER TABLE ugyfels DROP CONSTRAINT chk_ferfi_vagy_no_lehet_csak_megadva');
+     
 
         // Drop the table
         Schema::dropIfExists('ugyfels');

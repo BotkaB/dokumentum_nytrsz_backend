@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('elszamolas_tipuses', function (Blueprint $table) {
             $table->id('elszamolas_tipus_id');
-            $table->string('elszamolas_elnevezes');
+            $table->enum('elszamolas_elnevezese', ['bevonás', 'max.alapfokú végzettségű', 'képzettséget szerzett']);
             $table->timestamps();
         });
     }
@@ -23,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('elszamolas_tipuses');
+        Schema::dropIfExists('elszamolas_tipus_ides');
     }
 };

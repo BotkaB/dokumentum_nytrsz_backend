@@ -9,6 +9,7 @@ class Dokumentumok extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'elszamolas_tipus_id';
     protected $fillable = [
         'megvalositashelyszin_id',
         'elszamolas_id',

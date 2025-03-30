@@ -9,10 +9,9 @@ class ElszamolasTipus extends Model
 {
     use HasFactory;
 
-   
+    protected $primaryKey = 'elszamolas_tipus_id';
     protected $fillable = [
-        'ugyfel_tipus_id',
-        'dokumentum_tipus_id'
+      'elszamolas_elnevezese'
       
 
     ];

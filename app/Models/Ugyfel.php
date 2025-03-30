@@ -21,4 +21,9 @@ class Ugyfel extends Model
         'ugyfelkod'
 
     ];
+
+    public function elszamolas()
+    {
+        return $this->hasMany(Elszamolas::class, 'ugyfel_id');
+    }   
 }

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('ugyfeltipusok_dokumentumais', function (Blueprint $table) {
             $table->id();
             $table->foreignId('ugyfel_tipus_id')->references('ugyfel_tipus_id')->on('ugyfel_tipuses');
-            $table->foreignId('dokumentum_tipus_id_id')->references('dokumentum_tipus_id')->on('dokumentum_tipuses'); 
+            $table->foreignId('dokumentum_tipus_id')->references('dokumentum_tipus_id')->on('dokumentum_tipuses'); 
             $table->timestamps();
         });
     }

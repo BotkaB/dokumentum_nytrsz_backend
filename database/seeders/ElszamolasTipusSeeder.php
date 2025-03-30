@@ -15,10 +15,10 @@ class ElszamolasTipusSeeder extends Seeder
     public function run(): void
     {
         DB::table('elszamolas_tipuses')->insert([
-            ['elszamolas_elnevezes' => 'bevonás'],
-            ['elszamolas_elnevezes' => 'max.alapfokú végzettségű'],
-            ['elszamolas_elnevezes' => 'képzettséget szerzett'],
-     
+            ['elszamolas_elnevezese' => 'bevonás'],
+            ['elszamolas_elnevezese' => 'max.alapfokú végzettségű'],
+            ['elszamolas_elnevezese' => 'képzettséget szerzett'],
+
         ]);
     }
 }
