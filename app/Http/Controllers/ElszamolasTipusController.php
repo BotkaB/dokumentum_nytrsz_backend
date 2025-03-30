@@ -3,63 +3,43 @@
 namespace App\Http\Controllers;
 
 use App\Models\ElszamolasTipus;
+use App\Http\Requests\ElszamolasTipusRequest;
 use Illuminate\Http\Request;
 
 class ElszamolasTipusController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    // Összes elszámolás típus listázása
     public function index()
     {
-        //
+        return response()->json(ElszamolasTipus::all());
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    // Egy konkrét elszámolás típus lekérdezése
+    public function show($id)
     {
-        //
+        $tipus = ElszamolasTipus::findOrFail($id);
+        return response()->json($tipus);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    // Új elszámolás típus létrehozása
+    public function store(ElszamolasTipusRequest $request)
     {
-        //
+        $tipus = ElszamolasTipus::create($request->validated());
+        return response()->json($tipus, 201);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(ElszamolasTipus $elszamolasTipus)
+    // Elszámolás típus frissítése
+    public function update(ElszamolasTipusRequest $request, $id)
     {
-        //
+        $tipus = ElszamolasTipus::findOrFail($id);
+        $tipus->update($request->validated());
+        return response()->json($tipus);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(ElszamolasTipus $elszamolasTipus)
+    // Elszámolás típus törlése
+    public function destroy($id)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, ElszamolasTipus $elszamolasTipus)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(ElszamolasTipus $elszamolasTipus)
-    {
-        //
+        ElszamolasTipus::destroy($id);
+        return response()->json(['message' => 'Elszámolás típus törölve.']);
     }
 }

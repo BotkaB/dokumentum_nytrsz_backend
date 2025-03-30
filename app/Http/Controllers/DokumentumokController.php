@@ -3,19 +3,50 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dokumentumok;
+use App\Http\Requests\DokumentumokRequest;  
 use Illuminate\Http\Request;
 
 class DokumentumokController extends Controller
 {
+    
+    public function store(DokumentumokRequest $request)
+    {
+
+        $dokumentum = Dokumentumok::create($request->validated());
+
+        return response()->json($dokumentum, 201); 
+    } 
+
     public function index()
     {
-        $dokumentumok = response()->json(Dokumentumok::all());
-        return $dokumentumok;
+        $dokumentumok = Dokumentumok::all(); 
+        return response()->json($dokumentumok);
     }
 
+  
     public function show($id)
     {
-        $dokumentum = response()->json(Dokumentumok::find($id));
-        return $dokumentum;
+        $dokumentum = Dokumentumok::find($id);
+
+        if (!$dokumentum) {
+            return response()->json(['message' => 'Dokumentum nem található'], 404);
+        }
+
+        return response()->json($dokumentum);
+    }
+
+  
+    public function update(DokumentumokRequest $request, $id)
+    {
+        $dokumentum = Dokumentumok::find($id);
+
+        if (!$dokumentum) {
+            return response()->json(['message' => 'Dokumentum nem található'], 404);
+        }
+
+    
+        $dokumentum->update($request->validated());
+
+        return response()->json($dokumentum);
     }
 }

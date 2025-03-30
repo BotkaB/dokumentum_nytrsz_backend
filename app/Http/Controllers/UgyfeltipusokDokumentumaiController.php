@@ -4,62 +4,36 @@ namespace App\Http\Controllers;
 
 use App\Models\UgyfeltipusokDokumentumai;
 use Illuminate\Http\Request;
+use App\Http\Requests\UgyfeltipusokDokumentumaiRequest; 
 
 class UgyfeltipusokDokumentumaiController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
-        //
+        return response()->json(UgyfeltipusokDokumentumai::all());
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+   
+    public function show($id)
     {
-        //
+        $kapcsolat = UgyfeltipusokDokumentumai::findOrFail($id);
+        return response()->json($kapcsolat);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function store(UgyfeltipusokDokumentumaiRequest $request)
     {
-        //
+        $kapcsolat = UgyfeltipusokDokumentumai::create($request->validated());
+        return response()->json($kapcsolat, 201);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(UgyfeltipusokDokumentumai $ugyfeltipusokDokumentumai)
+ 
+    public function update(UgyfeltipusokDokumentumaiRequest $request, $id)
     {
-        //
+        $kapcsolat = UgyfeltipusokDokumentumai::findOrFail($id);
+        $kapcsolat->update($request->validated());
+        return response()->json($kapcsolat);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(UgyfeltipusokDokumentumai $ugyfeltipusokDokumentumai)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, UgyfeltipusokDokumentumai $ugyfeltipusokDokumentumai)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(UgyfeltipusokDokumentumai $ugyfeltipusokDokumentumai)
-    {
-        //
-    }
+   
 }

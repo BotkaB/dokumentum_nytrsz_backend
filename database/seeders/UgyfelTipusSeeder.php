@@ -15,63 +15,63 @@ class UgyfelTipusSeeder extends Seeder
     {
         DB::table('ugyfel_tipuses')->insert([
             'ugyfel_fotipus' => null,
-            'dokumentum_neve' => 'fogvatartott',
+            'elnevezes' => 'fogvatartott',
         ]);
         DB::table('ugyfel_tipuses')->insert([
             'ugyfel_fotipus' => 1,
-            'dokumentum_neve' => 'fogvatartott',
+            'elnevezes' => 'fogvatartott',
         ]);
         DB::table('ugyfel_tipuses')->insert([
             'ugyfel_fotipus' => 1,
-            'dokumentum_neve' => 'szabadult',
+            'elnevezes' => 'szabadult',
         ]);
         DB::table('ugyfel_tipuses')->insert([
             'ugyfel_fotipus' => 1,
-            'dokumentum_neve' => 'reintegrációs őrizetes',
+            'elnevezes' => 'reintegrációs őrizetes',
         ]);
         DB::table('ugyfel_tipuses')->insert([
             'ugyfel_fotipus' => null,
-            'dokumentum_neve' => 'kapcsolattartó',
+            'elnevezes' => 'kapcsolattartó',
         ]);
         DB::table('ugyfel_tipuses')->insert([
             'ugyfel_fotipus' => 2,
-            'dokumentum_neve' => 'kapcsolattartó',
+            'elnevezes' => 'kapcsolattartó',
         ]);
         DB::table('ugyfel_tipuses')->insert([
             'ugyfel_fotipus' => 2,
-            'dokumentum_neve' => 'hozzátartozó',
+            'elnevezes' => 'hozzátartozó',
         ]);
         DB::table('ugyfel_tipuses')->insert([
             'ugyfel_fotipus' => null,
-            'dokumentum_neve' => 'közösségi foglalkoztató ügyfél',
+            'elnevezes' => 'közösségi foglalkoztató ügyfél',
         ]);
         DB::table('ugyfel_tipuses')->insert([
             'ugyfel_fotipus' => 3,
-            'dokumentum_neve' => 'pártfogó felügyelet elrendelésével, feltételes szabadságra bocsátott elítélt ',
+            'elnevezes' => 'pártfogó felügyelet elrendelésével, feltételes szabadságra bocsátott elítélt ',
         ]);
         DB::table('ugyfel_tipuses')->insert([
             'ugyfel_fotipus' => 3,
-            'dokumentum_neve' => 'reintegrációs őrizetbe helyezett elítélt',
+            'elnevezes' => 'reintegrációs őrizetbe helyezett elítélt',
         ]);
         DB::table('ugyfel_tipuses')->insert([
             'ugyfel_fotipus' => 3,
-            'dokumentum_neve' => 'társadalmi kötődés programba helyezett elítélt',
+            'elnevezes' => 'társadalmi kötődés programba helyezett elítélt',
         ]);
         DB::table('ugyfel_tipuses')->insert([
             'ugyfel_fotipus' => 3,
-            'dokumentum_neve' => 'EFOP/KMR szabadult ügyfél',
+            'elnevezes' => 'EFOP/KMR szabadult ügyfél',
         ]);
         DB::table('ugyfel_tipuses')->insert([
             'ugyfel_fotipus' => 3,
-            'dokumentum_neve' => 'EFOP/KMR ügyfél hozzátartozó',
+            'elnevezes' => 'EFOP/KMR ügyfél hozzátartozó',
         ]);
         DB::table('ugyfel_tipuses')->insert([
             'ugyfel_fotipus' => 3,
-            'dokumentum_neve' => 'bv. intézeti jogviszonnyal rendelkezők hozzátartozói',
+            'elnevezes' => 'bv. intézeti jogviszonnyal rendelkezők hozzátartozói',
         ]);
         DB::table('ugyfel_tipuses')->insert([
             'ugyfel_fotipus' => 3,
-            'dokumentum_neve' => 'büntetését kitöltve szabadult',
+            'elnevezes' => 'büntetését kitöltve szabadult',
         ]);
     }
 }

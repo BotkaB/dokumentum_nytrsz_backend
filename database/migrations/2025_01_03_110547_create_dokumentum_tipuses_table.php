@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('dokumentum_tipuses', function (Blueprint $table) {
             $table->id('dokumentum_tipus_id');
-         $table->foreignId('elszamolas_tipus_id')->references('elszamolas_tipus_id')->on('elszamolas_tipuses');
-            $table->string('dokumentum_neve');
+            $table->foreignId('elszamolas_tipus_id')->references('elszamolas_tipus_id')->on('elszamolas_tipuses');
+            $table->string('dokumentum_neve')->unique();
           
 
             $table->timestamps();
