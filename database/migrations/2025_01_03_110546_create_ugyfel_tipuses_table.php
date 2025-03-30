@@ -12,10 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('ugyfel_tipuses', function (Blueprint $table) {
-            $table->id();
-            $table->integer('főtípus')->nullable()->default(null);
-            $table->string('elnevezés');
+            $table->bigIncrements('ugyfel_tipus_id');
+            $table->unsignedBigInteger('fotipus')->nullable()->default(null);
+            $table->string('elnevezes');
             $table->timestamps();
+
+            $table->foreign('fotipus')->references('ugyfel_tipus_id')->on('ugyfel_tipuses');
         });
     }
 

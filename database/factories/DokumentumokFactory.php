@@ -17,7 +17,15 @@ class DokumentumokFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'megvalositashelyszin_azon' => \App\Models\MegvalositasiHelyszin::inRandomOrder()->first()->azon,
+            'elszamolas_id' => \App\Models\Elszamolas::inRandomOrder()->first()->elszamolas_id,
+            'ugyfeltipus_azon' => $ugyfeltipus->id,
+            'bevonas_datum'=>fake('hu_HU')->date(),
+            'kotelezo_dokumentumok_szama' => 0, 
+            'opcionalis_dokumentumok_szama' => 0, 
+            'elszamolhatosag_allapota' => 0, 
+            'elszamolhatosag_datum' => null, 
+            'elszamolas_datum' => null
         ];
     }
 }

@@ -18,4 +18,15 @@ class UgyfelController extends Controller
         $ugyfel = response()->json(Ugyfel::find($id));
         return $ugyfel;
     }
+
+    public function update(Request $request, $id)
+    {
+        $ugyfel = Ugyfel::find($id);
+        if ($ugyfel) {
+            $ugyfel->update($request->all());
+            return response()->json($ugyfel);
+        } else {
+            return response()->json(['message' => 'Ugyfel nem talaltato'], 404);
+        }
+    }
 }

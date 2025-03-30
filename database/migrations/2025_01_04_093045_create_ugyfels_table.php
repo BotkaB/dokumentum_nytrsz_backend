@@ -13,19 +13,21 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('ugyfels', function (Blueprint $table) {
-            $table->id('belso_kod');
-            $table->string('név');
-            $table->string('születési név');
-            $table->string('anyja neve');
-            $table->string('születési hely');
-            $table->date('születési idő');
-            $table->string('lakcím');
-            $table->char('neme',5);
-            $table->bigInteger('ügyfélkód');
+            $table->unique(['szuletesi_nev', 'anyja_neve', 'szuletesi_hely', 'szuletesi_ido'], 'unique_szuletesi_nev_anyja_neve');
+            $table->id('ugyfel_id');
+            $table->string('nev');
+            $table->string('szuletesi_nev');
+            $table->string('anyja_neve');
+            $table->string('szuletesi_hely');
+            $table->date('szuletesi_ido');
+            $table->string('telepules');
+            $table->char('neme', 5);
+            $table->bigInteger('ugyfelkod');
             $table->timestamps();
         });
 
-        DB::statement('ALTER TABLE ugyfels ADD CONSTRAINT chk_férfi_vagy_nő_lehet_csak_megadva CHECK (neme = "férfi" or neme = "nő");');
+        // Add the constraint after table creation
+        DB::statement('ALTER TABLE ugyfels ADD CONSTRAINT chk_ferfi_vagy_no_lehet_csak_megadva CHECK (neme = \'ferfi\' OR neme = \'no\');');
     }
 
     /**
@@ -33,6 +35,10 @@ return new class extends Migration
      */
     public function down(): void
     {
+        // Drop the check constraint before dropping the table
+        DB::statement('ALTER TABLE ugyfels DROP CONSTRAINT chk_ferfi_vagy_no_lehet_csak_megadva');
+
+        // Drop the table
         Schema::dropIfExists('ugyfels');
     }
 };

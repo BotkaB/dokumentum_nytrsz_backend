@@ -9,18 +9,33 @@ class MegvalositasiHelyszin extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'azon';
+    protected $primaryKey = 'megvalositasi_helyszin_id';
     protected $fillable = [
-        'intézet',
-        'név',
-        'agglomeráció',
-        'régió',
-        'típus',
-      
+        'intezet',
+        'nev',
+        'agglomeracio',
+        'regio',
+        'tipus',
+
     ];
+
+    public function parent()
+{
+    return $this->belongsTo(MegvalositasiHelyszin::class, 'intezet');
+}
+
+public function children()
+{
+    return $this->hasMany(MegvalositasiHelyszin::class, 'intezet');
+}
 
     public function elszamolas()
     {
-        return $this->hasMany(Elszamolas::class, 'megvalositashelyszin_azon', 'azon');
+        return $this->hasMany(Elszamolas::class, 'megvalositasi_helyszin_id');
+    }
+
+    public function intezetek()
+    {
+        return $this->hasMany(MegvalositasiHelyszin::class, 'megvalositasi_helyszin_id', 'intezet');
     }
 }

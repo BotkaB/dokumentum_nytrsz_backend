@@ -15,7 +15,7 @@ class ElszamolasokController extends Controller
 
         $elszamolas = Elszamolas::create([
             'megvalositashelyszin_azon' => $request->input('megvalositashelyszin_azon'),
-            'ugyfel_belsokod' => $request->input('ugyfel_belsokod'),
+            'ugyfel_id' => $request->input('ugyfel_id'),
             'ugyfeltipus_azon' => $request->input('ugyfeltipus_azon'),
             'bevonas_datum' => $request->input('bevonas_datum'),
             'kotelezo_dokumentumok_szama' => 0,

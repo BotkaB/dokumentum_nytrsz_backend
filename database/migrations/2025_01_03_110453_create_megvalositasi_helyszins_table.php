@@ -12,13 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('megvalositasi_helyszins', function (Blueprint $table) {
-            $table->id('azon');
-            $table->integer('intézet')->nullable()->default(null);
-            $table->string('név');
-            $table->tinyInteger('agglomeráció')->nullable()->default(null);
-            $table->string('régió')->nullable()->default(null);
-            $table->string('típus')->nullable()->default(null);
+            $table->bigIncrements('megvalositasi_helyszin_id');
+            $table->unsignedBigInteger('intezet')->nullable()->default(null);
+            $table->string('nev');
+            $table->tinyInteger('agglomeracio')->nullable()->default(null);
+            $table->string('regio')->nullable()->default(null);
+            $table->string('tipus')->nullable()->default(null);
             $table->timestamps();
+
+            $table->foreign('intezet')->references('megvalositasi_helyszin_id')->on('megvalositasi_helyszins');
         });
     }
 

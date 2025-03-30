@@ -11,12 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('dokumentum_tipuses', function (Blueprint $table) {
-            $table->id('dokumentum_tipus_id');
-         $table->foreignId('elszamolas_tipus_id')->references('elszamolas_tipus_id')->on('elszamolas_tipuses');
-            $table->string('dokumentum_neve');
-          
-
+        Schema::create('elszamolas_tipuses', function (Blueprint $table) {
+            $table->id('elszamolas_tipus_id');
+            $table->string('elszamolas_elnevezes');
             $table->timestamps();
         });
     }
@@ -26,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('dokumentum_tipuses');
+        Schema::dropIfExists('elszamolas_tipuses');
     }
 };

@@ -6,376 +6,377 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 use Illuminate\Support\Facades\DB;
+
 class MegvalositasiHelyszinSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
-    public function run(): void
-    {
-        DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>null,
-        'név' => 'Állampusztai Országos Büntetés-végrehajtási Intézet', 
-        'agglomeráció'=>3,
-        'régió' => 'konvergencia', 
-        'típus' => 'bv', 
-     ]);
-     DB::table('megvalositasi_helyszins')->insert([ 
-       'intézet'=>1,
-        'név' => 'Állampuszta', 
-        'agglomeráció'=>null,
-        'régió' => null, 
-        'típus' => null, 
-     ]);
-     DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>1,
-         'név' => 'Solt', 
-         'agglomeráció'=>null,
-         'régió' => null, 
-         'típus' => null, 
+   /**
+    * Run the database seeds.
+    */
+   public function run(): void
+   {
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => null,
+         'nev' => 'Állampusztai Országos Büntetés-végrehajtási Intézet',
+         'agglomeracio' => 3,
+         'regio' => 'konvergencia',
+         'tipus' => 'bv',
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>null,
-         'név' => 'Bács-Kiskun Vármegyei Büntetés-végrehajtási Intézet', 
-         'agglomeráció'=>3,
-         'régió' => 'konvergencia', 
-         'típus' => 'bv', 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => 1,
+         'nev' => 'Állampuszta',
+         'agglomeracio' => null,
+         'regio' => null,
+         'tipus' => null,
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>4,
-         'név' => 'Wéber Ede', 
-         'agglomeráció'=>null,
-         'régió' => null, 
-         'típus' => null, 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => 1,
+         'nev' => 'Solt',
+         'agglomeracio' => null,
+         'regio' => null,
+         'tipus' => null,
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>4,
-         'név' => 'Mátyási', 
-         'agglomeráció'=>null,
-         'régió' => null, 
-         'típus' => null, 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => null,
+         'nev' => 'Bacs-Kiskun Vármegyei Büntetés-végrehajtasi Intézet',
+         'agglomeracio' => 3,
+         'regio' => 'konvergencia',
+         'tipus' => 'bv',
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>null,
-         'név' => 'Balassagyarmati Fegyház és Börtön', 
-         'agglomeráció'=>4,
-         'régió' => 'konvergencia', 
-         'típus' => 'bv', 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => 4,
+         'nev' => 'Wéber Ede',
+         'agglomeracio' => null,
+         'regio' => null,
+         'tipus' => null,
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>null,
-         'név' => 'Baranya Vármegyei Büntetés-végrehajtási Intézet', 
-         'agglomeráció'=>2,
-         'régió' => 'konvergencia', 
-         'típus' => 'bv', 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => 4,
+         'nev' => 'Mátyási',
+         'agglomeracio' => null,
+         'regio' => null,
+         'tipus' => null,
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>null,
-         'név' => 'Békés Vármegyei Büntetés-végrehajtási Intézet', 
-         'agglomeráció'=>3,
-         'régió' => 'konvergencia', 
-         'típus' => 'bv', 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => null,
+         'nev' => 'Balassagyarmati Fegyház es Börtön',
+         'agglomeracio' => 4,
+         'regio' => 'konvergencia',
+         'tipus' => 'bv',
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>null,
-         'név' => 'Borsod-Abaúj Zemplén Vármegyei Büntetés-végrehajtási Intézet', 
-         'agglomeráció'=>5,
-         'régió' => 'konvergencia', 
-         'típus' => 'bv', 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => null,
+         'nev' => 'Baranya Vármegyei Büntetés-végrehajtasi Intézet',
+         'agglomeracio' => 2,
+         'regio' => 'konvergencia',
+         'tipus' => 'bv',
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>10,
-         'név' => 'Megyei', 
-         'agglomeráció'=>null,
-         'régió' => null, 
-         'típus' => null, 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => null,
+         'nev' => 'Békés Vármegyei Büntetés-végrehajtasi Intézet',
+         'agglomeracio' => 3,
+         'regio' => 'konvergencia',
+         'tipus' => 'bv',
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>10,
-         'név' => 'Szirmabesenyő', 
-         'agglomeráció'=>null,
-         'régió' => null, 
-         'típus' => null, 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => null,
+         'nev' => 'Borsod-Abaúj Zemplén Vármegyei Büntetés-végrehajtasi Intézet',
+         'agglomeracio' => 5,
+         'regio' => 'konvergencia',
+         'tipus' => 'bv',
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>null,
-         'név' => 'Budapesti Fegyház és Börtön', 
-         'agglomeráció'=>2,
-         'régió' => 'Budapest', 
-         'típus' => 'bv', 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => 10,
+         'nev' => 'Megyei',
+         'agglomeracio' => null,
+         'regio' => null,
+         'tipus' => null,
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>null,
-         'név' => 'Fiatalkorúak Büntetés-végrehajtási Intézete', 
-         'agglomeráció'=>2,
-         'régió' => 'konvergencia', 
-         'típus' => 'bv', 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => 10,
+         'nev' => 'Szirmabesenyő',
+         'agglomeracio' => null,
+         'regio' => null,
+         'tipus' => null,
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>null,
-         'név' => 'Fővárosi Büntetés-végrehajtási Intézete', 
-         'agglomeráció'=>4,
-         'régió' => 'Budapest', 
-         'típus' => 'bv', 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => null,
+         'nev' => 'Budapesti Fegyház es Börtön',
+         'agglomeracio' => 2,
+         'regio' => 'Budapest',
+         'tipus' => 'bv',
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>15,
-         'név' => 'I. objektum', 
-         'agglomeráció'=>null,
-         'régió' => null,
-         'típus' => null, 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => null,
+         'nev' => 'Fiatalkorúak Büntetes-vegrehajtasi Intezete',
+         'agglomeracio' => 2,
+         'regio' => 'konvergencia',
+         'tipus' => 'bv',
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>15,
-         'név' => 'II. objektum', 
-         'agglomeráció'=>null,
-         'régió' => null,
-         'típus' => null, 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => null,
+         'nev' => 'Fővárosi Büntetés-végrehajtási Intezet',
+         'agglomeracio' => 4,
+         'regio' => 'Budapest',
+         'tipus' => 'bv',
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>15,
-         'név' => 'III. objektum', 
-         'agglomeráció'=>null,
-         'régió' => null,
-         'típus' => null, 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => 15,
+         'nev' => 'I. objektum',
+         'agglomeracio' => null,
+         'regio' => null,
+         'tipus' => null,
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>null,
-         'név' => 'Győr-Moson-Sopron Vármegyei Büntetés-végrehajtási Intézet', 
-         'agglomeráció'=>1,
-         'régió' => 'konvergencia', 
-         'típus' => 'bv', 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => 15,
+         'nev' => 'II. objektum',
+         'agglomeracio' => null,
+         'regio' => null,
+         'tipus' => null,
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>null,
-         'név' => 'Hajdú-Bihar Vármegyei Büntetés-végrehajtási Intézet', 
-         'agglomeráció'=>5,
-         'régió' => 'konvergencia', 
-         'típus' => 'bv', 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => 15,
+         'nev' => 'III. objektum',
+         'agglomeracio' => null,
+         'regio' => null,
+         'tipus' => null,
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>null,
-         'név' => 'Heves Vármegyei Büntetés-végrehajtási Intézet', 
-         'agglomeráció'=>4,
-         'régió' => 'konvergencia', 
-         'típus' => 'bv', 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => null,
+         'nev' => 'Győr-Moson-Sopron Vármegyei Büntetés-végrehajtasi Intézet',
+         'agglomeracio' => 1,
+         'regio' => 'konvergencia',
+         'tipus' => 'bv',
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>null,
-         'név' => 'Igazságügyi Megfigyelő és Elmegyógyító Intézet', 
-         'agglomeráció'=>5,
-         'régió' => 'Budapest', 
-         'típus' => 'bv', 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => null,
+         'nev' => 'Hajdú-Bihar Vármegyei Büntetés-végrehajtasi Intézet',
+         'agglomeracio' => 5,
+         'regio' => 'konvergencia',
+         'tipus' => 'bv',
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>null,
-         'név' => 'Jász-Nagykun-Szolnok Vármegyei Büntetés-végrehajtási Intézet', 
-         'agglomeráció'=>5,
-         'régió' => 'konvergencia', 
-         'típus' => 'bv', 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => null,
+         'nev' => 'Heves Vármegyei Büntetés-végrehajtasi Intézet',
+         'agglomeracio' => 4,
+         'regio' => 'konvergencia',
+         'tipus' => 'bv',
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>null,
-         'név' => 'Kalocsai Fegyház és Börtön', 
-         'agglomeráció'=>3,
-         'régió' => 'konvergencia', 
-         'típus' => 'bv', 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => null,
+         'nev' => 'Igazságügyi Megfigyelo es Elmegyogyito Intezet',
+         'agglomeracio' => 5,
+         'regio' => 'Budapest',
+         'tipus' => 'bv',
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>null,
-         'név' => 'Kiskunhalasi Országos Büntetés-végrehajtási Intézet', 
-         'agglomeráció'=>3,
-         'régió' => 'konvergencia', 
-         'típus' => 'bv', 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => null,
+         'nev' => 'Jasz-Nagykun-Szolnok Vármegyei Büntetés-végrehajtasi Intézet',
+         'agglomeracio' => 5,
+         'regio' => 'konvergencia',
+         'tipus' => 'bv',
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>null,
-         'név' => 'Közép-Dunántúli Országos Büntetés-végrehajtási Intézet', 
-         'agglomeráció'=>2,
-         'régió' => 'konvergencia', 
-         'típus' => 'bv', 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => null,
+         'nev' => 'Kalocsai Fegyház es Börtön',
+         'agglomeracio' => 3,
+         'regio' => 'konvergencia',
+         'tipus' => 'bv',
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>26,
-         'név' => 'Baracska', 
-         'agglomeráció'=>null,
-         'régió' => null, 
-         'típus' => null, 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => null,
+         'nev' => 'Kiskunhalasi Országos Büntetes-vegrehajtasi Intezet',
+         'agglomeracio' => 3,
+         'regio' => 'konvergencia',
+         'tipus' => 'bv',
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>26,
-         'név' => 'Martonvárás', 
-         'agglomeráció'=>null,
-         'régió' => null, 
-         'típus' => null, 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => null,
+         'nev' => 'Kozep-Dunantúli Országos Büntetes-vegrehajtasi Intezet',
+         'agglomeracio' => 2,
+         'regio' => 'konvergencia',
+         'tipus' => 'bv',
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>26,
-         'név' => 'Székesfehérvár', 
-         'agglomeráció'=>null,
-         'régió' => null, 
-         'típus' => null, 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => 26,
+         'nev' => 'Baracska',
+         'agglomeracio' => null,
+         'regio' => null,
+         'tipus' => null,
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>null,
-         'név' => 'Márianosztrai Fegyház és Börtön', 
-         'agglomeráció'=>4,
-         'régió' => 'konvergencia', 
-         'típus' => 'bv', 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => 26,
+         'nev' => 'Martonvásár',
+         'agglomeracio' => null,
+         'regio' => null,
+         'tipus' => null,
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>null,
-         'név' => 'Pálhalmai Országos Büntetés-végrehajtási Intézet', 
-         'agglomeráció'=>2,
-         'régió' => 'konvergencia', 
-         'típus' => 'bv', 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => 26,
+         'nev' => 'Székesfehérvár',
+         'agglomeracio' => null,
+         'regio' => null,
+         'tipus' => null,
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>31,
-         'név' => 'Mélykút', 
-         'agglomeráció'=>null,
-         'régió' => null, 
-         'típus' => null, 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => null,
+         'nev' => 'Márianosztrai Fegyház es Börtön',
+         'agglomeracio' => 4,
+         'regio' => 'konvergencia',
+         'tipus' => 'bv',
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>31,
-         'név' => 'Bernátkút', 
-         'agglomeráció'=>null,
-         'régió' => null, 
-         'típus' => null, 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => null,
+         'nev' => 'Palhalmai Orszagos Büntetés-végrehajtási Intézet',
+         'agglomeracio' => 2,
+         'regio' => 'konvergencia',
+         'tipus' => 'bv',
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>31,
-         'név' => 'Sándorháza', 
-         'agglomeráció'=>null,
-         'régió' => null, 
-         'típus' => null, 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => 31,
+         'nev' => 'Melykut',
+         'agglomeracio' => null,
+         'regio' => null,
+         'tipus' => null,
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>null,
-         'név' => 'Sátoraljaújhelyi Fegyház és Börtön', 
-         'agglomeráció'=>5,
-         'régió' => 'konvergencia', 
-         'típus' => 'bv', 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => 31,
+         'nev' => 'Bernátkút',
+         'agglomeracio' => null,
+         'regio' => null,
+         'tipus' => null,
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>null,
-         'név' => 'Somogy Vármegyei Büntetés-végrehajtási Intézet', 
-         'agglomeráció'=>2,
-         'régió' => 'konvergencia', 
-         'típus' => 'bv', 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => 31,
+         'nev' => 'Sándorháza',
+         'agglomeracio' => null,
+         'regio' => null,
+         'tipus' => null,
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>null,
-         'név' => 'Sopronkőhidai Fegyház és Börtön', 
-         'agglomeráció'=>1,
-         'régió' => 'konvergencia', 
-         'típus' => 'bv', 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => null,
+         'nev' => 'Sátoraljaújhelyi Fegyház es Börtön',
+         'agglomeracio' => 5,
+         'regio' => 'konvergencia',
+         'tipus' => 'bv',
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>null,
-         'név' => 'Szabolcs-Szatmár-Bereg Vármegyei Büntetés-végrehajtási Intézet', 
-         'agglomeráció'=>5,
-         'régió' => 'konvergencia', 
-         'típus' => 'bv', 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => null,
+         'nev' => 'Somogy Vármegyei Büntetés-végrehajtasi Intézet',
+         'agglomeracio' => 2,
+         'regio' => 'konvergencia',
+         'tipus' => 'bv',
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>null,
-         'név' => 'Szegedi Fegyház és Börtön', 
-         'agglomeráció'=>3,
-         'régió' => 'konvergencia', 
-         'típus' => 'bv', 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => null,
+         'nev' => 'Sopronkohidai Fegyház es Börtön',
+         'agglomeracio' => 1,
+         'regio' => 'konvergencia',
+         'tipus' => 'bv',
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>39,
-         'név' => 'I. objektum', 
-         'agglomeráció'=>null,
-         'régió' => null, 
-         'típus' => null, 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => null,
+         'nev' => 'Szabolcs-Szatmar-Bereg Vármegyei Büntetés-végrehajtasi Intézet',
+         'agglomeracio' => 5,
+         'regio' => 'konvergencia',
+         'tipus' => 'bv',
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>39,
-         'név' => 'II. objektum', 
-         'agglomeráció'=>null,
-         'régió' => null, 
-         'típus' => null, 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => null,
+         'nev' => 'Szegedi Fegyház es Börtön',
+         'agglomeracio' => 3,
+         'regio' => 'konvergencia',
+         'tipus' => 'bv',
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>39,
-         'név' => 'III. objektum', 
-         'agglomeráció'=>null,
-         'régió' => null, 
-         'típus' => null, 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => 39,
+         'nev' => 'I. objektum',
+         'agglomeracio' => null,
+         'regio' => null,
+         'tipus' => null,
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>null,
-         'név' => 'Szombathelyi Országos Büntetés-végrehajtási Intézet', 
-         'agglomeráció'=>1,
-         'régió' => 'konvergencia', 
-         'típus' => 'bv', 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => 39,
+         'nev' => 'II. objektum',
+         'agglomeracio' => null,
+         'regio' => null,
+         'tipus' => null,
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>null,
-         'név' => 'Tiszalöki Országos Büntetés-végrehajtási Intézet', 
-         'agglomeráció'=>5,
-         'régió' => 'konvergencia', 
-         'típus' => 'bv', 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => 39,
+         'nev' => 'III. objektum',
+         'agglomeracio' => null,
+         'regio' => null,
+         'tipus' => null,
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>null,
-         'név' => 'Tököli Országos Büntetés-végrehajtási Intézet', 
-         'agglomeráció'=>2,
-         'régió' => 'konvergencia', 
-         'típus' => 'bv', 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => null,
+         'nev' => 'Szombathelyi Orszagos Büntetés-végrehajtási Intézet',
+         'agglomeracio' => 1,
+         'regio' => 'konvergencia',
+         'tipus' => 'bv',
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>null,
-         'név' => 'Tolna Vármegyei Büntetés-végrehajtási Intézet', 
-         'agglomeráció'=>2,
-         'régió' => 'konvergencia', 
-         'típus' => 'bv', 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => null,
+         'nev' => 'Tiszalöki Orszagos Büntetés-végrehajtási Intézet',
+         'agglomeracio' => 5,
+         'regio' => 'konvergencia',
+         'tipus' => 'bv',
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>null,
-         'név' => 'Váci Fegyház és Börtön', 
-         'agglomeráció'=>4,
-         'régió' => 'konvergencia', 
-         'típus' => 'bv', 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => null,
+         'nev' => 'Tököli Orszagos Büntetés-végrehajtási Intézet',
+         'agglomeracio' => 2,
+         'regio' => 'konvergencia',
+         'tipus' => 'bv',
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>null,
-         'név' => 'Veszprém Vármegyei Büntetés-végrehajtási Intézet', 
-         'agglomeráció'=>1,
-         'régió' => 'konvergencia', 
-         'típus' => 'bv', 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => null,
+         'nev' => 'Tolna Vármegyei Büntetés-végrehajtasi Intézet',
+         'agglomeracio' => 2,
+         'regio' => 'konvergencia',
+         'tipus' => 'bv',
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-        'intézet'=>null,
-         'név' => 'Zala Vármegyei Büntetés-végrehajtási Intézet', 
-         'agglomeráció'=>1,
-         'régió' => 'konvergencia', 
-         'típus' => 'bv', 
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => null,
+         'nev' => 'Váci Fegyház es Börtön',
+         'agglomeracio' => 4,
+         'regio' => 'konvergencia',
+         'tipus' => 'bv',
       ]);
-      DB::table('megvalositasi_helyszins')->insert([ 
-         'intézet'=>null,
-          'név' => 'Jász-Nagykun-Szolnok Vármegyei Közösségi Foglalkoztató', 
-          'agglomeráció'=>6,
-          'régió' => 'konvergencia', 
-          'típus' => 'kf', 
-       ]);
-       DB::table('megvalositasi_helyszins')->insert([ 
-         'intézet'=>null,
-          'név' => 'Hajdú-Bihar Vármegyei Közösségi Foglalkoztató', 
-          'agglomeráció'=>6,
-          'régió' => 'konvergencia', 
-          'típus' => 'kf', 
-       ]);
-       DB::table('megvalositasi_helyszins')->insert([ 
-         'intézet'=>null,
-          'név' => 'Szabolcs-Szatmár-Bereg Vármegyei Közösségi Foglalkoztató', 
-          'agglomeráció'=>6,
-          'régió' => 'konvergencia', 
-          'típus' => 'kf', 
-       ]);
-    }
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => null,
+         'nev' => 'Veszprém Vármegyei Büntetés-végrehajtasi Intézet',
+         'agglomeracio' => 1,
+         'regio' => 'konvergencia',
+         'tipus' => 'bv',
+      ]);
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => null,
+         'nev' => 'Zala Vármegyei Büntetés-végrehajtasi Intézet',
+         'agglomeracio' => 1,
+         'regio' => 'konvergencia',
+         'tipus' => 'bv',
+      ]);
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => null,
+         'nev' => 'Jász-Nagykun-Szolnok Vármegyei Közösségi Foglalkoztató',
+         'agglomeracio' => 9,
+         'regio' => 'konvergencia',
+         'tipus' => 'kf',
+      ]);
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => null,
+         'nev' => 'Hajdú-Bihar Vármegyei Közösségi Foglalkoztató',
+         'agglomeracio' => 9,
+         'regio' => 'konvergencia',
+         'tipus' => 'kf',
+      ]);
+      DB::table('megvalositasi_helyszins')->insert([
+         'intezet' => null,
+         'nev' => 'Szabolcs-Szatmár-Bereg Vármegyei Közösségi Foglalkoztató',
+         'agglomeracio' => 9,
+         'regio' => 'konvergencia',
+         'tipus' => 'kf',
+      ]);
+   }
 }

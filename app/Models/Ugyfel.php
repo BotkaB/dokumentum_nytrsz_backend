@@ -8,17 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Ugyfel extends Model
 {
     use HasFactory;
-    
-    protected $primaryKey = 'belso_kod';
+
+    protected $primaryKey = 'ugyfel_id';
     protected $fillable = [
-        'név',
-        'születési név',
-        'anyja neve',
-        'születési hely',
-        'születési idő',
-        'lakcím',
+        'nev',
+        'szuletesi_nev',
+        'anyja_neve',
+        'szuletesi_hely',
+        'szuletesi_ido',
+        'telepules',
         'neme',
-        'ügyfélkód'
-            
+        'ugyfelkod'
+
     ];
 }

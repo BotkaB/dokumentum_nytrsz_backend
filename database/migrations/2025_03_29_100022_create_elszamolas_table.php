@@ -12,15 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('elszamolas', function (Blueprint $table) {
-            $table->id(); 
-            $table->foreignId('megvalositashelyszin_azon')->references('azon')->on('megvalositasi_helyszins');
-            $table->foreignId('ugyfel_belsokod')->references('belso_kod')->on('ugyfels'); 
-            $table->foreignId('ugyfeltipus_azon')->references('id')->on('ugyfel_tipuses'); 
+            $table->id('elszamolas_id');
+            $table->foreignId('megvalositasi_helyszin_id')->references('megvalositasi_helyszin_id')->on('megvalositasi_helyszins');
+            $table->foreignId('ugyfel_id')->references('ugyfel_id')->on('ugyfels'); 
+            $table->foreignId('elszamolas_tipus_id')->references('elszamolas_tipus_id')->on('elszamolas_tipuses');  
+            $table->foreignId('ugyfeltipus_id')->references('ugyfel_tipus_id')->on('ugyfel_tipuses'); 
             $table->date('bevonas_datum'); 
-            $table->integer('kotelezo_dokumentumok_szama')->default(0); 
-            $table->integer('opcionalis_dokumentumok_szama')->default(0);
-            $table->boolean('elszamolhatosag_allapota')->default(0);
             $table->date('elszamolhatosag_datum')->nullable(); 
+            $table->string('elszamolhatosag_allapota');          
             $table->date('elszamolas_datum')->nullable(); 
             $table->timestamps(); 
     });

@@ -15,17 +15,17 @@ class UgyfelFactory extends Factory
      * @return array<string, mixed>
      */
     public function definition(): array
-    { 
+    {
         return [
-        'név'=>fake('hu_HU')->name(),
-        'születési név'=>fake('hu_HU')->name(),
-        'anyja neve'=>fake('hu_HU')->name(),
-        'születési hely'=>fake('hu_HU')->city(),
-        'születési idő'=>fake('hu_HU')->date(),
-        'lakcím'=>fake('hu_HU')->address(),
-        'neme'=>fake()->randomElement(['férfi', 'nő']),
-        'ügyfélkód'=>fake()->numberBetween(900000,99999999),
-    
+            'nev' => fake('hu_HU')->name(),
+            'szuletesi_nev' => fake('hu_HU')->name(),
+            'anyja_neve' => fake('hu_HU')->name(),
+            'szuletesi_hely' => fake('hu_HU')->city(),
+            'szuletesi_ido' => fake('hu_HU')->date(),
+            'telepules' => fake('hu_HU')->city(),
+            'neme' => fake()->randomElement(['ferfi', 'no']),
+            'ugyfelkod' => fake()->numberBetween(900000, 99999999),
+
         ];
     }
 }

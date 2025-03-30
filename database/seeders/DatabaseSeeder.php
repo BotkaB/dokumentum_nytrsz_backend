@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Ugyfel;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -20,7 +22,9 @@ class DatabaseSeeder extends Seeder
             MegvalositasiHelyszinSeeder::class,
             UgyfelTipusSeeder::class,
             DokumentumTipusSeeder::class,
-           
+            ElszamolasTipusSeeder::class,
+            UgyfelTipusokDokumentumaiSeeder::class,
+          
         ]);
         \App\Models\Elszamolas::factory(300)->create();  
     }

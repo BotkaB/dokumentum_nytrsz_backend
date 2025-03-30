@@ -17,18 +17,20 @@ class ElszamolasFactory extends Factory
      */
     public function definition(): array
     {
-        $ugyfeltipus = UgyfelTipus::inRandomOrder()->first(); 
+     
+        $bevonasDatum = fake('hu_HU')->dateBetween('2024-09-15', 'now');
+        $elszamolhatosagDatum = random_int(0, 1) ? fake('hu_HU')->dateTimeBetween($bevonasDatum, 'now') : null;
+
       
         return [
-            'megvalositashelyszin_azon' => \App\Models\MegvalositasiHelyszin::inRandomOrder()->first()->azon,
-            'ugyfel_belsokod' => \App\Models\Ugyfel::inRandomOrder()->first()->belso_kod,
-            'ugyfeltipus_azon' => $ugyfeltipus->id,
-            'bevonas_datum'=>fake('hu_HU')->date(),
-            'kotelezo_dokumentumok_szama' => 0, 
-            'opcionalis_dokumentumok_szama' => 0, 
-            'elszamolhatosag_allapota' => 0, 
-            'elszamolhatosag_datum' => null, 
-            'elszamolas_datum' => null
+            'megvalositasi_helyszin_id' => \App\Models\MegvalositasiHelyszin::inRandomOrder()->first()->azon,
+            'ugyfel_id' => \App\Models\Ugyfel::inRandomOrder()->first()->ugyfel_id,
+            'elszamolas_tipus_id' => null,
+            'ugyfel_tipus_id' => null,
+            'bevonas_datum' =>  $bevonasDatum ,
+            'elszamolhatosag_datuma' => null, 
+            'elszamolas_allapota' => "nem elszámolható",      
+            'elszamolas_datuma' => null
         ];
     }
 }

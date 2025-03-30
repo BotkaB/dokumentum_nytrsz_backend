@@ -22,7 +22,7 @@ use App\Http\Middleware\Admin;
  //  return $request->user();
 //});
 //Route::middleware('auth:sanctum')->get('/users', [UserController::class, 'getUser']);
-//Route::middleware('auth:sanctum')->post('/user/update/{id}', [UserController::class, 'updateUser']);
+//Route::middleware('auth:sanctum')->post('/user/update/{id}', [UserController::class, 'update']);
 
 
 Route::post('/register',[RegisteredUserController::class, 'store']);
@@ -39,7 +39,7 @@ Route::middleware(['auth:sanctum'])
     });
     */
     Route::get('/user', [UserController::class, 'getUser']);
-    Route::post('/user/update/{id}', [UserController::class, 'updateUser']);
+    Route::post('/user/update/{id}', [UserController::class, 'update']);
     Route::post('/logout', [AuthenticatedSessionController::class, 'destroy']);
 });  
 
@@ -50,7 +50,10 @@ Route::middleware(['auth:sanctum'])
   
   Route::middleware(['auth:sanctum', Admin::class])
   ->group(function () {
-        Route::get('/admin/users', [UserController::class, 'index']);
+        Route::get('users', [UserController::class, 'index']);
+        Route::post('users', [UserController::class, 'store']);
+        Route::put('users/{id}', [UserController::class, 'update']);
+        Route::delete('users/{id}', [UserController::class, 'destroy']);
     });
 
 
