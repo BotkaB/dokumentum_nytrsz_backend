@@ -1,5 +1,7 @@
 <?php
 
+
+
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
@@ -62,15 +64,13 @@ class ElszamolasRequest extends FormRequest
             // Ha az új elszámolás 'elszámolható', akkor ellenőrizzük, hogy az ügyfélnek van-e már 'bevonás' típusú elszámolása, amely 'elszámolható' állapotú.
             if ($elszamolhatosag_allapota === 'elszámolható') {
                 $existingElszamolas = Elszamolas::where('ugyfel_id', $ugyfel_id)
-                    ->where('elszamolas_tipus_id', function ($query) {
-                        $query->select('elszamolas_tipus_id')
-                            ->from('elszamolas_tipuses')
-                            ->where('elnevezes', 'bevonás');
+                    ->whereHas('elszamolasTipus', function ($query) {
+                        $query->where('elnevezes', 'bevonás');
                     })
                     ->where('elszamolhatosag_allapota', 'elszámolható')
                     ->exists();
 
-               
+                // Ha nincs ilyen rekord, hibaüzenetet adunk hozzá a validációhoz
                 if (!$existingElszamolas) {
                     $validator->errors()->add('elszamolhatosag_allapota', 'Az ügyfélnek először egy "bevonás" típusú, "elszámolható" állapotú elszámolás szükséges.');
                 }

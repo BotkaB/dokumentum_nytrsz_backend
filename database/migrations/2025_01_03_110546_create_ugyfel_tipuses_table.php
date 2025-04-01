@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('ugyfel_tipuses', function (Blueprint $table) {
             $table->bigIncrements('ugyfel_tipus_id');
             $table->unsignedBigInteger('ugyfel_fotipus')->nullable()->default(null);
-            $table->string('elnevezés');
+            $table->string('elnevezes');
             $table->timestamps();
 
             $table->foreign('ugyfel_fotipus')->references('ugyfel_tipus_id')->on('ugyfel_tipuses');

@@ -42,7 +42,7 @@ class UserController extends Controller
             'name'     => ['required', 'string', 'max:255'],
             'email'    => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:users,email'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'role'     => ['required', 'string'],
+            'role'     => ['required', 'integer', 'between:0,3'],
         ]);
 
         $user = new User();

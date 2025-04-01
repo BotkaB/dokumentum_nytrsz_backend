@@ -19,7 +19,7 @@ class DokumentumokFactory extends Factory
         return [
             'megvalositashelyszin_azon' => \App\Models\MegvalositasiHelyszin::inRandomOrder()->first()->azon,
             'elszamolas_id' => \App\Models\Elszamolas::inRandomOrder()->first()->elszamolas_id,
-            'ugyfel_tipus_azon' => $ugyfel_tipus->id,
+            'ugyfel_tipus_azon' => \App\Models\UgyfelTipus::inRandomOrder()->first()->id,
             'bevonas_datum' => fake('hu_HU')->date(),
             'kotelezo_dokumentumok_szama' => 0,
             'opcionalis_dokumentumok_szama' => 0,

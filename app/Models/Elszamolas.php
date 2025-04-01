@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class Elszamolas extends Model
 {
     use HasFactory;
@@ -23,19 +24,20 @@ class Elszamolas extends Model
         'elszamolas_datuma'
     ];
 
+
     public function megvalositasiHelyszin()
     {
         return $this->belongsTo(MegvalositasiHelyszin::class, 'megvalositasi_helyszin_id');
     }
- 
-    public function Ugyfel()
+
+    public function ugyfel()
     {
         return $this->belongsTo(Ugyfel::class, 'uygfel_id');
     }
 
-    public function dokumentum()
+    public function dokumentumok()
     {
-        return $this->hasMany(Dokumentumok::class, 'elszamolas_tipus_id');
+        return $this->hasMany(Dokumentumok::class, 'elszamolas_id');
     }
 
     public function elszamolasTipus()
@@ -47,5 +49,6 @@ class Elszamolas extends Model
     {
         return $this->belongsTo(UgyfelTipus::class, 'ugyfel_tipus_id');
     }
+
 
 }

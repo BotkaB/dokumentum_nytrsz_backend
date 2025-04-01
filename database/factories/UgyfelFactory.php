@@ -21,7 +21,7 @@ class UgyfelFactory extends Factory
             'szuletesi_nev' => fake('hu_HU')->name(),
             'anyja_neve' => fake('hu_HU')->name(),
             'szuletesi_hely' => fake('hu_HU')->city(),
-            'szuletesi_ido' => fake('hu_HU')->date(),
+            'szuletesi_ido' => fake('hu_HU')->dateTimeBetween('-90 years', '-18 years')->format('Y-m-d'),
             'telepules' => fake('hu_HU')->city(),
             'neme' => fake()->randomElement(['ferfi', 'no']),
             'ugyfelkod' => fake()->numberBetween(900000, 99999999),
