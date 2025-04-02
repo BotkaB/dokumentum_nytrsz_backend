@@ -64,5 +64,11 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \App\Http\Middleware\EnsureEmailIsVerified::class,
+       
+          // Saját middleware-ek
+    'admin' => \App\Http\Middleware\Admin::class,
+    'dokumentumSzerkeszto' => \App\Http\Middleware\DokumentumSzerkesztoMiddleware::class,
+    'statisztikaMegtekinto' => \App\Http\Middleware\StatisztikaMegtekintoMiddleware::class,
+    'megszuntetett' => \App\Http\Middleware\MegszuntetettMiddleware::class,
     ];
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\Admin;
+use App\Http\Middleware\StatisztikaMegtekintoMiddleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,7 @@ Route::middleware(['auth:sanctum'])
 
   
   Route::middleware(['auth:sanctum', Admin::class])
+  ->prefix('admin')
   ->group(function () {
         Route::get('users', [UserController::class, 'index']);
         Route::post('users', [UserController::class, 'store']);
@@ -57,4 +59,9 @@ Route::middleware(['auth:sanctum'])
         Route::delete('users/{id}', [UserController::class, 'destroy']);
     });
 
+    Route::middleware(['auth:sanctum', 'statisztikaMegtekinto'])
+    ->prefix('statisztika')
+    ->group(function () {
+        Route::get('users', [UserController::class, 'index']);
+    });
 
