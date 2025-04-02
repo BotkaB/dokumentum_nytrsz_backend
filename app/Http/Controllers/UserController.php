@@ -13,12 +13,7 @@ class UserController extends Controller
     // Bejelentkezett felhasznalo adatainak lekerdezese
     public function getUser(Request $request)
     {
-        return response()->json([
-            'id'    => $request->user()->id,
-            'name'  => $request->user()->name,
-            'email' => $request->user()->email,
-            'role'  => $request->user()->role,
-        ]);
+        return response()->json(Auth::user());
     }
 
     // osszes felhasznalo lekerdezese
@@ -58,28 +53,57 @@ class UserController extends Controller
     }
 
     // Meglevo felhasznalo modositasa
-    public function update(Request $request, $id)
+    public function updateSelf(Request $request)
     {
+        // A validációban nem szerepel a role
         $request->validate([
             'name'     => ['required', 'string', 'max:255'],
             'email'    => ['required', 'string', 'lowercase', 'email', 'max:255'],
             'password' => ['nullable', 'confirmed', Rules\Password::defaults()],
-            'role'     => ['required', 'string'],
         ]);
-
-        $user = User::findOrFail($id);
+    
+        $user = $request->user(); // A jelenlegi bejelentkezett felhasználó
         $user->name     = $request->name;
         $user->email    = $request->email;
+        
+        // Ha van új jelszó, frissítjük azt
         if ($request->filled('password')) {
             $user->password = Hash::make($request->password);
         }
-        $user->role     = $request->role;
+    
+        // A szerepkör nem változik, mert azt nem küldjük el a kérésben
+        // Tehát a szerepkör változatlan marad
+    
         $user->save();
-
+    
         return response()->json([
             'user' => $user
         ]);
     }
+
+    public function updateByAdmin(Request $request, $id)
+{
+    // Az admin által végzett validáció
+    $request->validate([
+        'name'     => ['required', 'string', 'max:255'],
+        'email'    => ['required', 'string', 'lowercase', 'email', 'max:255'],
+        'password' => ['nullable', 'confirmed', Rules\Password::defaults()],
+        'role'     => ['required', 'string'], // A role is validálva lesz
+    ]);
+
+    $user = User::findOrFail($id); // Keresés ID alapján
+    $user->name     = $request->name;
+    $user->email    = $request->email;
+    if ($request->filled('password')) {
+        $user->password = Hash::make($request->password);
+    }
+    $user->role     = $request->role; // Az admin módosíthatja a szerepkört
+    $user->save();
+
+    return response()->json([
+        'user' => $user
+    ]);
+}
 
     // Felhasznalo logikai torlese az ID alapjan
     public function destroy($id)
