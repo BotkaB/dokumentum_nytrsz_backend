@@ -31,10 +31,12 @@ class UgyfelRequest extends FormRequest
             'string',
             'max:255',
             function ($attribute, $value, $fail) {
+                $id = $this->route('id');
                 $exists = \App\Models\Ugyfel::where('szuletesi_nev', $value)
                     ->where('anyja_neve', $this->anyja_neve)
                     ->where('szuletesi_hely', $this->szuletesi_hely)
                     ->where('szuletesi_ido', $this->szuletesi_ido)
+                    ->where('ugyfel_id', '!=', $id)
                     ->exists();
 
                 if ($exists) {
