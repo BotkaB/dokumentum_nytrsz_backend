@@ -57,7 +57,7 @@ Route::middleware(['auth:sanctum'])
   ->group(function () {
         Route::get('users', [UserController::class, 'index']);
         Route::post('users', [UserController::class, 'store']);
-        Route::put('users/{id}', [UserController::class, 'update']);
+        Route::put('users/{id}', [UserController::class, 'updateByAdmin']);
        
        Route::get('ugyfel_tipuses', [UgyfelTipusController::class, 'index']);
        Route::post('ugyfel_tipuses', [UgyfelTipusController::class, 'store']);

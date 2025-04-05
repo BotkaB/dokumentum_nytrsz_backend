@@ -4,33 +4,50 @@ namespace App\Http\Controllers;
 
 use App\Models\UgyfelTipus;
 use App\Http\Requests\UgyfelTipusRequest;
+use App\Http\Resources\UgyfelTipusResource;
+
 use Illuminate\Http\Request;
 
 class UgyfelTipusController extends Controller
 {
-
     public function index()
     {
-        $ugyfeltipusok = Ugyfeltipus::all();
-        if ($ugyfeltipusok->isEmpty()) {
-            return response()->json(['message' => 'Nincs elérhető adat.'], 404);
+        try {
+            $ugyfeltipusok = UgyfelTipus::with('parent')->get();
+    
+            if ($ugyfeltipusok->isEmpty()) {
+                return response()->json(['message' => 'Nincs elérhető adat.'], 404);
+            }
+    
+            return UgyfelTipusResource::collection($ugyfeltipusok);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
         }
-        return response()->json($ugyfeltipusok);
     }
+    
 
     public function store(UgyfelTipusRequest $request)
     {
-     
-        $ugyfelTipus = UgyfelTipus::create($request->validated());
-        
-        return response()->json($ugyfelTipus, 201); 
+        $data = $request->validated();
+
+        $ugyfelTipus = UgyfelTipus::create([
+            'elnevezes' => $data['elnevezes'],
+            'ugyfel_fotipus' => $data['ugyfel_fotipus'] ?? null,
+        ]);
+
+        return new UgyfelTipusResource($ugyfelTipus->load('parent'));
     }
 
     public function update(UgyfelTipusRequest $request, $id)
     {
+        $data = $request->validated();
+
         $ugyfelTipus = UgyfelTipus::findOrFail($id);
-        $ugyfelTipus->update($request->validated());
-        
-        return response()->json($ugyfelTipus);
+        $ugyfelTipus->update([
+            'elnevezes' => $data['elnevezes'],
+            'ugyfel_fotipus' => $data['ugyfel_fotipus'] ?? null,
+        ]);
+
+        return new UgyfelTipusResource($ugyfelTipus->load('parent'));
     }
 }

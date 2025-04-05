@@ -15,7 +15,7 @@ class UgyfelTipusRequest extends FormRequest
     public function rules()
     {
         return [
-            'elnevezés' => 'required|string|max:255',  
+            'elnevezes' => 'required|string|max:255',  
             'ugyfel_fotipus' => 'nullable|exists:ugyfel_tipuses,ugyfel_tipus_id', 
         ];
     }
