@@ -8,6 +8,16 @@ use Illuminate\Http\Request;
 
 class UgyfelTipusController extends Controller
 {
+
+    public function index()
+    {
+        $ugyfeltipusok = Ugyfeltipus::all();
+        if ($ugyfeltipusok->isEmpty()) {
+            return response()->json(['message' => 'Nincs elérhető adat.'], 404);
+        }
+        return response()->json($ugyfeltipusok);
+    }
+
     public function store(UgyfelTipusRequest $request)
     {
      

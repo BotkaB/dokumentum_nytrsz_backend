@@ -105,16 +105,5 @@ class UserController extends Controller
     ]);
 }
 
-    // Felhasznalo logikai torlese az ID alapjan
-    public function destroy($id)
-    {
-        $user = User::findOrFail($id);
-        // A felhasznalo role erteket 3-ra allitjuk a logikai torleshez
-        $user->role = 3;
-        $user->save();
-
-        return response()->json([
-            'message' => 'Felhasznalo logikai torlese megvalosult. Jogosultsagi szintje: 4.'
-        ]);
-    }
+   
 }

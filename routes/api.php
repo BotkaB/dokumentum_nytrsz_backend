@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UgyfelController;
+use App\Http\Controllers\UgyfelTipusController;
 use App\Http\Middleware\Admin;
 use App\Http\Middleware\StatisztikaMegtekintoMiddleware;
 
@@ -57,11 +58,19 @@ Route::middleware(['auth:sanctum'])
         Route::get('users', [UserController::class, 'index']);
         Route::post('users', [UserController::class, 'store']);
         Route::put('users/{id}', [UserController::class, 'update']);
-       // Route::delete('users/{id}', [UserController::class, 'destroy']);
-       Route::get('ugyfels', [UgyfelController::class, 'index']);
-       Route::post('ugyfels', [UgyfelController::class, 'store']);
-       Route::put('ugyfels/{id}', [UgyfelController::class, 'update']);
+       
+       Route::get('ugyfel_tipuses', [UgyfelTipusController::class, 'index']);
+       Route::post('ugyfel_tipuses', [UgyfelTipusController::class, 'store']);
+       Route::put('ugyfel_tipuses/{id}', [UgyfelTipusController::class, 'update']);
     });
+
+    Route::middleware(['auth:sanctum', 'dokumentumSzerkeszto'])
+
+    ->group(function () {
+         Route::get('ugyfels', [UgyfelController::class, 'index']);
+         Route::post('ugyfels', [UgyfelController::class, 'store']);
+         Route::put('ugyfels/{id}', [UgyfelController::class, 'update']);
+      });
 
     Route::middleware(['auth:sanctum', 'statisztikaMegtekinto'])
     
