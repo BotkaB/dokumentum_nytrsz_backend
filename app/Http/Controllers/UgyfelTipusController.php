@@ -29,25 +29,71 @@ class UgyfelTipusController extends Controller
     public function store(UgyfelTipusRequest $request)
     {
         $data = $request->validated();
-
-        $ugyfelTipus = UgyfelTipus::create([
+    
+        $insertData = [
             'elnevezes' => $data['elnevezes'],
-            'ugyfel_fotipus' => $data['ugyfel_fotipus'] ?? null,
-        ]);
-
-        return new UgyfelTipusResource($ugyfelTipus->load('parent'));
+        ];
+    
+        // Ha megadtak egy főtípust szövegesen
+        if (!empty($data['ugyfel_fotipus'])) {
+            $szulo = UgyfelTipus::where('elnevezes', $data['ugyfel_fotipus'])
+                                ->whereNull('ugyfel_fotipus') // Csak valódi főtípus lehet
+                                ->first();
+    
+            // Ha nincs ilyen főtípus, hiba
+            if (!$szulo) {
+                return response()->json([
+                    'errors' => [
+                        'ugyfel_fotipus' => ['A megadott főtípus nem létezik.']
+                    ]
+                ], 422);
+            }
+    
+            $insertData['ugyfel_fotipus'] = $szulo->ugyfel_tipus_id;
+        }
+    
+        // Új rekord mentése
+        $ujUgyfelTipus = UgyfelTipus::create($insertData);
+    
+        return new UgyfelTipusResource($ujUgyfelTipus->fresh('parent'));
     }
-
+     
+    
     public function update(UgyfelTipusRequest $request, $id)
     {
         $data = $request->validated();
-
+    
         $ugyfelTipus = UgyfelTipus::findOrFail($id);
-        $ugyfelTipus->update([
+    
+        // Alapadatok frissítése
+        $updateData = [
             'elnevezes' => $data['elnevezes'],
-            'ugyfel_fotipus' => $data['ugyfel_fotipus'] ?? null,
-        ]);
-
-        return new UgyfelTipusResource($ugyfelTipus->load('parent'));
+        ];
+    
+        // Csak akkor módosítjuk a főtípust, ha küldtek be új értéket (akár null is lehet)
+        if (array_key_exists('ugyfel_fotipus', $data)) {
+            if (!empty($data['ugyfel_fotipus'])) {
+                $szulo = UgyfelTipus::where('elnevezes', $data['ugyfel_fotipus'])
+                                    ->whereNull('ugyfel_fotipus')
+                                    ->first();
+    
+                if (!$szulo) {
+                    return response()->json([
+                        'errors' => [
+                            'ugyfel_fotipus' => ['A megadott főtípus nem létezik.']
+                        ]
+                    ], 422);
+                }
+    
+                $updateData['ugyfel_fotipus'] = $szulo->ugyfel_tipus_id;
+            } else {
+                $updateData['ugyfel_fotipus'] = null;
+            }
+        }
+    
+        $ugyfelTipus->update($updateData);
+    
+        return new UgyfelTipusResource($ugyfelTipus->fresh('parent'));
     }
+    
 }

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UgyfelController;
 use App\Http\Controllers\UgyfelTipusController;
+use App\Http\Controllers\MegvalositasiHelyszinController;
 use App\Http\Middleware\Admin;
 use App\Http\Middleware\StatisztikaMegtekintoMiddleware;
 
@@ -62,6 +63,10 @@ Route::middleware(['auth:sanctum'])
        Route::get('ugyfel_tipuses', [UgyfelTipusController::class, 'index']);
        Route::post('ugyfel_tipuses', [UgyfelTipusController::class, 'store']);
        Route::put('ugyfel_tipuses/{id}', [UgyfelTipusController::class, 'update']);
+
+       Route::get('megvalositasi_helyszins', [MegvalositasiHelyszinController::class, 'index']);
+       Route::post('megvalositasi_helyszins', [MegvalositasiHelyszinController::class, 'store']);
+       Route::put('megvalositasi_helyszins/{id}', [MegvalositasiHelyszinController::class, 'update']);
     });
 
     Route::middleware(['auth:sanctum', 'dokumentumSzerkeszto'])
