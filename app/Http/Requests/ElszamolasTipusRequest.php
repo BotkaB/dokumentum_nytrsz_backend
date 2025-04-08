@@ -8,21 +8,28 @@ class ElszamolasTipusRequest extends FormRequest
 {
     public function authorize()
     {
-        return auth()->user() && auth()->user()->role < 2; 
+        return auth()->user() && auth()->user()->role < 1; 
     }
 
     public function rules()
     {
+        $rule = 'required|string|max:255|unique:elszamolas_tipuses,elszamolas_elnevezese'; // Az egyediség ellenőrzés
+    
+        // Ha PUT kérés (update), akkor figyelmen kívül hagyjuk az aktuális rekordot
+        if ($this->isMethod('put')) {
+            $rule = 'required|string|max:255|unique:elszamolas_tipuses,elszamolas_elnevezese,' . $this->route('id') . ',elszamolas_tipus_id';
+        }
+    
         return [
-            'elszamolas_elnevezese' => 'required|in:bevonás,max.alapfokú végzettségű,képzettséget szerzett',
+            'elszamolas_elnevezese' => $rule,
         ];
     }
-
+    
     public function messages()
     {
         return [
             'elszamolas_elnevezese.required' => 'Az elszámolás elnevezése kötelező.',
-            'elszamolas_elnevezese.in' => 'Az elszámolás elnevezése csak az alábbi lehet: bevonás, max.alapfokú végzettségű, képzettséget szerzett.',
+           
         ];
     }
 }

@@ -21,25 +21,36 @@ class ElszamolasTipusController extends Controller
         return response()->json($tipus);
     }
 
-    // Új elszámolás típus létrehozása
     public function store(ElszamolasTipusRequest $request)
     {
-        $tipus = ElszamolasTipus::create($request->validated());
-        return response()->json($tipus, 201);
+        $data = $request->validated();
+    
+        // Új ElszamolasTipus rekord létrehozása
+        $elszamolasTipus = ElszamolasTipus::create([
+            'elszamolas_elnevezese' => $data['elszamolas_elnevezese'],
+        ]);
+    
+        return response()->json([
+            'message' => 'Új elszámolás típus sikeresen létrehozva.',
+            'data' => $elszamolasTipus,
+        ], 201);
     }
-
-    // Elszámolás típus frissítése
+    
     public function update(ElszamolasTipusRequest $request, $id)
     {
-        $tipus = ElszamolasTipus::findOrFail($id);
-        $tipus->update($request->validated());
-        return response()->json($tipus);
+        $data = $request->validated();
+    
+        // Meglévő ElszamolasTipus rekord keresése
+        $elszamolasTipus = ElszamolasTipus::findOrFail($id);
+    
+        // Rekord frissítése
+        $elszamolasTipus->update([
+            'elszamolas_elnevezese' => $data['elszamolas_elnevezese'],
+        ]);
+    
+        return response()->json([
+            'message' => 'Elszámolás típus sikeresen frissítve.',
+            'data' => $elszamolasTipus,
+        ]);
     }
-
-    // Elszámolás típus törlése
-    public function destroy($id)
-    {
-        ElszamolasTipus::destroy($id);
-        return response()->json(['message' => 'Elszámolás típus törölve.']);
-    }
-}
+}   
