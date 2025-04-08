@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\DokumentumTipusController;
 use App\Http\Controllers\ElszamolasTipusController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -72,6 +73,12 @@ Route::middleware(['auth:sanctum'])
        Route::get('elszamolas_tipuses', [ElszamolasTipusController::class, 'index']);
        Route::post('elszamolas_tipuses', [ElszamolasTipusController::class, 'store']);
        Route::put('elszamolas_tipuses/{id}', [ElszamolasTipusController::class, 'update']);
+
+       
+       Route::get('dokumentum_tipuses', [DokumentumTipusController::class, 'index']);
+       Route::post('dokumentum_tipuses', [DokumentumTipusController::class, 'store']);
+       Route::put('dokumentum_tipuses/{id}', [DokumentumTipusController::class, 'update']);
+     
     });
 
     Route::middleware(['auth:sanctum', 'dokumentumSzerkeszto'])
