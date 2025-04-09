@@ -12,8 +12,7 @@ class DokumentumTipus extends Model
    
     protected $primaryKey = 'dokumentum_tipus_id';
     protected $fillable = [
-        'ugyfel_fotipus,
-        elszamolas_tipus_id',
+        'elszamolas_tipus_id',
         'dokumentum_neve',
 
     ];

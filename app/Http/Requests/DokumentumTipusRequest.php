@@ -20,7 +20,7 @@ class DokumentumTipusRequest extends FormRequest
         $dokumentumId = $this->route('id'); 
         return [
             'elszamolas_tipus_id' => 'required|exists:elszamolas_tipuses,elszamolas_tipus_id', 
-            'dokumentum_neve' => 'required|string|max:255|unique:dokumentum_tipusok,dokumentum_neve,' .$dokumentumId.'dokumentum_tipus_id',
+            'dokumentum_neve' => 'required|string|max:255|unique:dokumentum_tipuses,dokumentum_neve,' .$dokumentumId.',dokumentum_tipus_id',
         ];
     }
 
