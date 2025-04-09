@@ -10,6 +10,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\UgyfelController;
 use App\Http\Controllers\UgyfelTipusController;
 use App\Http\Controllers\MegvalositasiHelyszinController;
+use App\Http\Controllers\UgyfeltipusokDokumentumaiController;
 use App\Http\Middleware\Admin;
 use App\Http\Middleware\StatisztikaMegtekintoMiddleware;
 
@@ -79,6 +80,9 @@ Route::middleware(['auth:sanctum'])
        Route::post('dokumentum_tipuses', [DokumentumTipusController::class, 'store']);
        Route::put('dokumentum_tipuses/{id}', [DokumentumTipusController::class, 'update']);
      
+       Route::get('ugyfel_tipusok_dokumentumai', [UgyfeltipusokDokumentumaiController::class, 'index']);
+       Route::post('ugyfel_tipusok_dokumentumai', [UgyfeltipusokDokumentumaiController::class, 'store']);
+       Route::put('ugyfel_tipusok_dokumentumai/{id}', [UgyfeltipusokDokumentumaiController::class, 'update']);
     });
 
     Route::middleware(['auth:sanctum', 'dokumentumSzerkeszto'])

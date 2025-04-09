@@ -8,7 +8,7 @@ class UgyfeltipusokDokumentumaiRequest extends FormRequest
 {
     public function authorize()
     {
-        return auth()->user() && auth()->user()->role < 2; 
+        return auth()->user() && auth()->user()->role < 1; 
     }
 
     public function rules()
