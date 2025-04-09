@@ -18,6 +18,7 @@ class ElszamolasTipusSeeder extends Seeder
             ['elszamolas_elnevezese' => 'bevonás'],
             ['elszamolas_elnevezese' => 'max.alapfokú végzettségű'],
             ['elszamolas_elnevezese' => 'képzettséget szerzett'],
+            ['elszamolas_elnevezese' => 'nem tartozik elszámoláshoz'],
 
         ]);
     }

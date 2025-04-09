@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ugyfeltipusok_dokumentumais', function (Blueprint $table) {
+        Schema::create('ugyfel_tipusok_dokumentumai', function (Blueprint $table) {
             $table->id();
             $table->foreignId('ugyfel_tipus_id')->references('ugyfel_tipus_id')->on('ugyfel_tipuses');
             $table->foreignId('dokumentum_tipus_id')->references('dokumentum_tipus_id')->on('dokumentum_tipuses'); 
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ugyfeltipusok_dokumentumais');
+        Schema::dropIfExists('ugyfel_tipusok_dokumentumai');
     }
 };

@@ -63,7 +63,7 @@ class Dokumentumok extends Model
 
             // Az ügyféltípus és dokumentum típus összhangjának ellenőrzése
             $ugyfelTipusId = $dokumentum->elszamolas->ugyfel_tipus_id;
-            $validDokumentumTipus = DB::table('ugyfeltipusok_dokumentumais')
+            $validDokumentumTipus = DB::table('ugyfel_tipusok_dokumentumai')
                 ->where('ugyfel_tipus_id', $ugyfelTipusId)
                 ->where('dokumentum_tipus_id', $dokumentumTipusId)
                 ->exists();

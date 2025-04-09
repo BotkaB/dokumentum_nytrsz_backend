@@ -51,7 +51,7 @@ class DokumentumTipusSeeder extends Seeder
 
         ]);
         DB::table('dokumentum_tipuses')->insert([
-            'elszamolas_tipus_id' => 1,
+            'elszamolas_tipus_id' => 4,
             'dokumentum_neve' => 'Ft. Projektbol torteno kilepeskor: „ESZA+ altal finanszirozott programot befejezo resztvevo szamara”',
 
         ]);

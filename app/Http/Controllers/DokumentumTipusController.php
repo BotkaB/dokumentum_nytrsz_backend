@@ -7,26 +7,29 @@ use App\Http\Requests\DokumentumTipusRequest;
 
 class DokumentumTipusController extends Controller
 {
-   
-    public function store(DokumentumTipusRequest $request)
-    {
-       
-        $dokumentumTipus = DokumentumTipus::create($request->validated());
 
-        return response()->json($dokumentumTipus, 201); 
-    }
-
-   
+  
     public function index()
     {
-        $dokumentumTipusok = DokumentumTipus::all();
+        
+        $dokumentumTipusok = DokumentumTipus::with(['elszamolasTipus', 'ugyfelTipusok'])->get();
+
         return response()->json($dokumentumTipusok);
     }
 
-   
+    
+  
+    public function store(DokumentumTipusRequest $request)
+    {
+        $dokumentumTipus = DokumentumTipus::create($request->validated());
+
+        
+        return response()->json($dokumentumTipus->load(['elszamolasTipus', 'ugyfelTipusok']), 201);
+    }
+
     public function show($id)
     {
-        $dokumentumTipus = DokumentumTipus::find($id);
+        $dokumentumTipus = DokumentumTipus::with(['elszamolasTipus', 'ugyfelTipusok'])->find($id);
 
         if (!$dokumentumTipus) {
             return response()->json(['message' => 'Dokumentum típus nem található'], 404);
@@ -40,12 +43,14 @@ class DokumentumTipusController extends Controller
     {
         $dokumentumTipus = DokumentumTipus::find($id);
 
+     
         if (!$dokumentumTipus) {
             return response()->json(['message' => 'Dokumentum típus nem található'], 404);
         }
 
+     
         $dokumentumTipus->update($request->validated());
 
-        return response()->json($dokumentumTipus);
+        return response()->json($dokumentumTipus->load(['elszamolasTipus', 'ugyfelTipusok']));
     }
 }

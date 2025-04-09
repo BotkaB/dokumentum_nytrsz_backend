@@ -17,9 +17,10 @@ class DokumentumTipusRequest extends FormRequest
      */
     public function rules()
     {
+        $dokumentumId = $this->route('id'); 
         return [
-            'elszamolas_tipus_id' => 'required|exists:elszamolas_tipuses,elszamolas_tipus_id', // Ellenőrizzük, hogy az elszamolas_tipus_id létezik a megfelelő táblában
-            'dokumentum_neve' => 'required|string|max:255|unique:dokumentum_tipusok,dokumentum_neve', // Egyedi dokumentum név a táblában
+            'elszamolas_tipus_id' => 'required|exists:elszamolas_tipuses,elszamolas_tipus_id', 
+            'dokumentum_neve' => 'required|string|max:255|unique:dokumentum_tipusok,dokumentum_neve,' .$dokumentumId.'dokumentum_tipus_id',
         ];
     }
 

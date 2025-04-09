@@ -13,7 +13,7 @@ class UgyfelTipusokDokumentumaiSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('ugyfeltipusok_dokumentumais')->insert([
+        DB::table('ugyfel_tipusok_dokumentumai')->insert([
             ['ugyfel_tipus_id' => 2, 'dokumentum_tipus_id' => 1],
             ['ugyfel_tipus_id' => 2, 'dokumentum_tipus_id' => 2],
             ['ugyfel_tipus_id' => 2, 'dokumentum_tipus_id' => 3],
