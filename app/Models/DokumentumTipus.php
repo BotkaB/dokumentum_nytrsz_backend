@@ -22,9 +22,9 @@ class DokumentumTipus extends Model
         return $this->belongsToMany(UgyfelTipus::class, 'ugyfel_tipusok_dokumentumai', 'dokumentum_tipus_id', 'ugyfel_tipus_id');
     }
 
-    public function dokumentumTipusok()
+    public function dokumentumok()
     {
-        return $this->hasMany(Dokumentumok::class, 'dokumentum_tipus_id');
+        return $this->hasMany(Dokumentumok::class, 'dokumentum_id');
     }
 
     public function elszamolasTipus()

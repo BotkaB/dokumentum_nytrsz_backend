@@ -13,8 +13,13 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(10)->create();
-
+    
+        User::factory()->create([
+            'name' => 'SzuperAdmin',
+            'email' => 'superadmin@example.com',
+            'password'=>Hash::make('Pass01word'),
+            'role'=>0
+        ]);
         User::factory()->create([
             'name' => 'Test Stat',
             'email' => 'teststat@example.com',
@@ -41,6 +46,7 @@ class UserSeeder extends Seeder
             'password'=>Hash::make('Pass15word'),
             'role'=>3
         ]);
+        User::factory(10)->create();
 
       
     }

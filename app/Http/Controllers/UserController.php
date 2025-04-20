@@ -83,6 +83,16 @@ class UserController extends Controller
 
     public function updateByAdmin(Request $request, $id)
 {
+    
+    $user = User::findOrFail($id); // Keresés ID alapján
+
+    //Szuper admin szerepkör védelme
+    if ($user->id === 1 && $request->has('role')) {
+        return response()->json([
+            'message' => 'A szuperadmin szerepkör nem módosítható.'
+        ], 403);
+    }
+
     // Az admin által végzett validáció
     $request->validate([
         'name'     => ['required', 'string', 'max:255'],
@@ -91,13 +101,14 @@ class UserController extends Controller
         'role'     => ['required', 'string'], // A role is validálva lesz
     ]);
 
-    $user = User::findOrFail($id); // Keresés ID alapján
     $user->name     = $request->name;
     $user->email    = $request->email;
     if ($request->filled('password')) {
         $user->password = Hash::make($request->password);
     }
-    $user->role     = $request->role; // Az admin módosíthatja a szerepkört
+    if ($user->id !== 1) {
+        $user->role = $request->role;
+    } // Az admin módosíthatja a szerepkört, de a szuper adminét nem
     $user->save();
 
     return response()->json([
