@@ -98,7 +98,7 @@ class UserController extends Controller
         'name'     => ['required', 'string', 'max:255'],
         'email'    => ['required', 'string', 'lowercase', 'email', 'max:255'],
         'password' => ['nullable', 'confirmed', Rules\Password::defaults()],
-        'role'     => ['required', 'string'], // A role is validálva lesz
+        'role'     => ['required', 'integer', 'between:0,3'], // A role is validálva lesz
     ]);
 
     $user->name     = $request->name;
