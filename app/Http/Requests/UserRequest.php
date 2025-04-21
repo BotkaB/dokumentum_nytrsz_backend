@@ -34,7 +34,7 @@ class UserRequest extends FormRequest
         }
 
         if ($this->routeIs('users.updateByAdmin')) {
-            $rules['email'][] = 'unique:users,email,' . $this->route('id'); // <- hozzáadva
+            $rules['email'][] = Rule::unique('users', 'email')->ignore($this->route('id'));
             $rules['role'] = ['required', 'integer', 'between:0,3'];
         }
     
