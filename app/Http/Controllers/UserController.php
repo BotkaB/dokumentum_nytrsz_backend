@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Validation\Rules;
+use App\Http\Requests\UserRequest;
 
 class UserController extends Controller
 {
@@ -31,14 +32,8 @@ class UserController extends Controller
     }
 
     // uj felhasznalo letrehozasa
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        $request->validate([
-            'name'     => ['required', 'string', 'max:255'],
-            'email'    => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:users,email'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'role'     => ['required', 'integer', 'between:0,3'],
-        ]);
 
         $user = new User();
         $user->name     = $request->name;
@@ -53,15 +48,9 @@ class UserController extends Controller
     }
 
     // Meglevo felhasznalo modositasa
-    public function updateSelf(Request $request)
+public function updateSelf(UserRequest $request)
     {
-        // A validációban nem szerepel a role
-        $request->validate([
-            'name'     => ['required', 'string', 'max:255'],
-            'email'    => ['required', 'string', 'lowercase', 'email', 'max:255'],
-            'password' => ['nullable', 'confirmed', Rules\Password::defaults()],
-        ]);
-    
+       
         $user = $request->user(); // A jelenlegi bejelentkezett felhasználó
         $user->name     = $request->name;
         $user->email    = $request->email;
@@ -73,7 +62,7 @@ class UserController extends Controller
     
         // A szerepkör nem változik, mert azt nem küldjük el a kérésben
         // Tehát a szerepkör változatlan marad
-    
+        $user->role = $user->role;
         $user->save();
     
         return response()->json([
@@ -81,7 +70,7 @@ class UserController extends Controller
         ]);
     }
 
-    public function updateByAdmin(Request $request, $id)
+    public function updateByAdmin(UserRequest $request, $id)
 {
     
     $user = User::findOrFail($id); // Keresés ID alapján
@@ -93,13 +82,6 @@ class UserController extends Controller
         ], 403);
     }
 
-    // Az admin által végzett validáció
-    $request->validate([
-        'name'     => ['required', 'string', 'max:255'],
-        'email'    => ['required', 'string', 'lowercase', 'email', 'max:255'],
-        'password' => ['nullable', 'confirmed', Rules\Password::defaults()],
-        'role'     => ['required', 'integer', 'between:0,3'], // A role is validálva lesz
-    ]);
 
     $user->name     = $request->name;
     $user->email    = $request->email;
@@ -113,7 +95,7 @@ class UserController extends Controller
 
     return response()->json([
         'user' => $user
-    ]);
+    ]);    
 }
 
    

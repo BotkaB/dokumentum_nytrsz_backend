@@ -30,7 +30,7 @@ return $request->user();
 });
 
 //Route::middleware('auth:sanctum')->get('/users', [UserController::class, 'getUser']);
-Route::middleware('auth:sanctum')->post('/user/update', [UserController::class, 'updateSelf']);
+Route::middleware('auth:sanctum')->post('/user/update', [UserController::class, 'updateSelf'])->name('user.updateSelf');
 
 
 //Route::post('/register',[RegisteredUserController::class, 'store']);
@@ -61,7 +61,7 @@ Route::middleware(['auth:sanctum'])
   ->group(function () {
         Route::get('users', [UserController::class, 'index']);
         Route::post('users', [UserController::class, 'store']);
-        Route::put('users/{id}', [UserController::class, 'updateByAdmin']);
+        Route::put('users/{id}', [UserController::class, 'updateByAdmin'])->name('users.updateByAdmin');
        
        Route::get('ugyfel_tipuses', [UgyfelTipusController::class, 'index']);
        Route::post('ugyfel_tipuses', [UgyfelTipusController::class, 'store']);
