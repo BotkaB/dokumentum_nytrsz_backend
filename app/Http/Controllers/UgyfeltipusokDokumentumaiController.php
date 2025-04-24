@@ -10,9 +10,22 @@ class UgyfeltipusokDokumentumaiController extends Controller
 {
     public function index()
     {
-        return response()->json(
-            UgyfeltipusokDokumentumai::with(['dokumentumTipus', 'ugyfelTipus'])->get()
-        );
+        // Lekérjük a kapcsolódó modelleket a megfelelő adatokkal
+        $kapcsolatok = UgyfeltipusokDokumentumai::with(['dokumentumTipus', 'ugyfelTipus'])
+            ->get()
+            ->map(function ($kapcsolat) {
+                return [
+                    'id' => $kapcsolat->id,
+                    'ugyfel_tipus_id' => $kapcsolat->ugyfelTipus->ugyfel_tipus_id,
+                    'ugyfel_tipus_elnevezes' => $kapcsolat->ugyfelTipus->elnevezes, // A típus neve
+                    'dokumentum_tipus_id' => $kapcsolat->dokumentumTipus->dokumentum_tipus_id,
+                    'dokumentum_neve' => $kapcsolat->dokumentumTipus->dokumentum_neve, // A dokumentum neve
+                    'created_at' => $kapcsolat->created_at,
+                    'updated_at' => $kapcsolat->updated_at,
+                ];
+            });
+
+        return response()->json($kapcsolatok);
     }
 
     public function show($id)

@@ -14,6 +14,20 @@ class DokumentumTipusController extends Controller
         
         $dokumentumTipusok = DokumentumTipus::with(['elszamolasTipus', 'ugyfelTipusok'])->get();
 
+        $dokumentumTipusok = $dokumentumTipusok->map(function ($dokumentumTipus) {
+            return [
+                'dokumentum_tipus_id' => $dokumentumTipus->dokumentum_tipus_id,
+                'dokumentum_neve' => $dokumentumTipus->dokumentum_neve,
+                'elszamolas_tipus_id' => $dokumentumTipus->elszamolasTipus->elszamolas_tipus_id ?? null,
+                'elszamolas_elnevezese' => $dokumentumTipus->elszamolasTipus->elszamolas_elnevezese ?? null, // Közvetlen hozzáadás
+                'ugyfel_tipusok' => $dokumentumTipus->ugyfelTipusok->map(function ($ugyfelTipus) {
+                    return [
+                        'ugyfel_tipus_id' => $ugyfelTipus->ugyfel_tipus_id,
+                        'elnevezes' => $ugyfelTipus->elnevezes,
+                    ];
+                }),
+            ];
+        });
         return response()->json($dokumentumTipusok);
     }
 
