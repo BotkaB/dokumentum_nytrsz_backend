@@ -36,7 +36,7 @@ class UgyfelTipusController extends Controller
     
         // Ha megadtak egy főtípust szövegesen
         if (!empty($data['ugyfel_fotipus'])) {
-            $szulo = UgyfelTipus::where('elnevezes', $data['ugyfel_fotipus'])
+            $szulo = UgyfelTipus::where('ugyfel_tipus_id', $data['ugyfel_fotipus'])
                                 ->whereNull('ugyfel_fotipus') // Csak valódi főtípus lehet
                                 ->first();
     
@@ -73,7 +73,7 @@ class UgyfelTipusController extends Controller
         // Csak akkor módosítjuk a főtípust, ha küldtek be új értéket (akár null is lehet)
         if (array_key_exists('ugyfel_fotipus', $data)) {
             if (!empty($data['ugyfel_fotipus'])) {
-                $szulo = UgyfelTipus::where('elnevezes', $data['ugyfel_fotipus'])
+                $szulo = UgyfelTipus::where('ugyfel_tipus_id', $data['ugyfel_fotipus'])
                                     ->whereNull('ugyfel_fotipus')
                                     ->first();
     

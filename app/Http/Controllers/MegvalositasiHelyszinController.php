@@ -31,7 +31,7 @@ class MegvalositasiHelyszinController extends Controller
     
         // Ha megadtak egy intézetet szövegesen
         if (!empty($data['intezet'])) {
-            $intezet = MegvalositasiHelyszin::where('nev', $data['intezet'])
+            $intezet = MegvalositasiHelyszin::where('megvalositasi_helyszin_id', $data['intezet'])
                                             ->whereNull('intezet') // Csak valódi fő intézet lehet
                                             ->first();
     
@@ -72,7 +72,7 @@ class MegvalositasiHelyszinController extends Controller
     
         // Ha megadtak egy intézetet szövegesen
         if (!empty($data['intezet'])) {
-            $intezet = MegvalositasiHelyszin::where('nev', $data['intezet'])
+            $intezet = MegvalositasiHelyszin::where('megvalositasi_helyszin_id', $data['intezet'])
                                             ->whereNull('intezet') // Csak valódi fő intézet lehet
                                             ->first();
     
