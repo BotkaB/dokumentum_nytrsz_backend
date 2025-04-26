@@ -37,7 +37,7 @@ class MegvalositasiHelyszinSeeder extends Seeder
       ]);
       DB::table('megvalositasi_helyszins')->insert([
          'intezet' => null,
-         'nev' => 'Bacs-Kiskun Vármegyei Büntetés-végrehajtasi Intézet',
+         'nev' => 'Bács-Kiskun Vármegyei Büntetés-végrehajtási Intézet',
          'agglomeracio' => 3,
          'regio' => 'konvergencia',
          'tipus' => 'bv',
@@ -65,21 +65,21 @@ class MegvalositasiHelyszinSeeder extends Seeder
       ]);
       DB::table('megvalositasi_helyszins')->insert([
          'intezet' => null,
-         'nev' => 'Baranya Vármegyei Büntetés-végrehajtasi Intézet',
+         'nev' => 'Baranya Vármegyei Büntetés-végrehajtási Intézet',
          'agglomeracio' => 2,
          'regio' => 'konvergencia',
          'tipus' => 'bv',
       ]);
       DB::table('megvalositasi_helyszins')->insert([
          'intezet' => null,
-         'nev' => 'Békés Vármegyei Büntetés-végrehajtasi Intézet',
+         'nev' => 'Békés Vármegyei Büntetés-végrehajtási Intézet',
          'agglomeracio' => 3,
          'regio' => 'konvergencia',
          'tipus' => 'bv',
       ]);
       DB::table('megvalositasi_helyszins')->insert([
          'intezet' => null,
-         'nev' => 'Borsod-Abaúj Zemplén Vármegyei Büntetés-végrehajtasi Intézet',
+         'nev' => 'Borsod-Abaúj Zemplén Vármegyei Büntetés-végrehajtási Intézet',
          'agglomeracio' => 5,
          'regio' => 'konvergencia',
          'tipus' => 'bv',
@@ -107,7 +107,7 @@ class MegvalositasiHelyszinSeeder extends Seeder
       ]);
       DB::table('megvalositasi_helyszins')->insert([
          'intezet' => null,
-         'nev' => 'Fiatalkorúak Büntetes-vegrehajtasi Intezete',
+         'nev' => 'Fiatalkorúak Büntetés-végrehajtási Intézete',
          'agglomeracio' => 2,
          'regio' => 'konvergencia',
          'tipus' => 'bv',
@@ -142,35 +142,35 @@ class MegvalositasiHelyszinSeeder extends Seeder
       ]);
       DB::table('megvalositasi_helyszins')->insert([
          'intezet' => null,
-         'nev' => 'Győr-Moson-Sopron Vármegyei Büntetés-végrehajtasi Intézet',
+         'nev' => 'Győr-Moson-Sopron Vármegyei Büntetés-végrehajtási Intézet',
          'agglomeracio' => 1,
          'regio' => 'konvergencia',
          'tipus' => 'bv',
       ]);
       DB::table('megvalositasi_helyszins')->insert([
          'intezet' => null,
-         'nev' => 'Hajdú-Bihar Vármegyei Büntetés-végrehajtasi Intézet',
+         'nev' => 'Hajdú-Bihar Vármegyei Büntetés-végrehajtási Intézet',
          'agglomeracio' => 5,
          'regio' => 'konvergencia',
          'tipus' => 'bv',
       ]);
       DB::table('megvalositasi_helyszins')->insert([
          'intezet' => null,
-         'nev' => 'Heves Vármegyei Büntetés-végrehajtasi Intézet',
+         'nev' => 'Heves Vármegyei Büntetés-végrehajtási Intézet',
          'agglomeracio' => 4,
          'regio' => 'konvergencia',
          'tipus' => 'bv',
       ]);
       DB::table('megvalositasi_helyszins')->insert([
          'intezet' => null,
-         'nev' => 'Igazságügyi Megfigyelo es Elmegyogyito Intezet',
+         'nev' => 'Igazságügyi Megfigyelő és Elmegyógyító Intézet',
          'agglomeracio' => 5,
          'regio' => 'Budapest',
          'tipus' => 'bv',
       ]);
       DB::table('megvalositasi_helyszins')->insert([
          'intezet' => null,
-         'nev' => 'Jasz-Nagykun-Szolnok Vármegyei Büntetés-végrehajtasi Intézet',
+         'nev' => 'Jász-Nagykun-Szolnok Vármegyei Büntetés-végrehajtási Intézet',
          'agglomeracio' => 5,
          'regio' => 'konvergencia',
          'tipus' => 'bv',
@@ -184,14 +184,14 @@ class MegvalositasiHelyszinSeeder extends Seeder
       ]);
       DB::table('megvalositasi_helyszins')->insert([
          'intezet' => null,
-         'nev' => 'Kiskunhalasi Országos Büntetes-vegrehajtasi Intezet',
+         'nev' => 'Kiskunhalasi Országos Büntetés-végrehajtási Intézet',
          'agglomeracio' => 3,
          'regio' => 'konvergencia',
          'tipus' => 'bv',
       ]);
       DB::table('megvalositasi_helyszins')->insert([
          'intezet' => null,
-         'nev' => 'Kozep-Dunantúli Országos Büntetes-vegrehajtasi Intezet',
+         'nev' => 'Közép-Dunántúli Országos Büntetés-végrehajtási Intézet',
          'agglomeracio' => 2,
          'regio' => 'konvergencia',
          'tipus' => 'bv',
@@ -226,14 +226,14 @@ class MegvalositasiHelyszinSeeder extends Seeder
       ]);
       DB::table('megvalositasi_helyszins')->insert([
          'intezet' => null,
-         'nev' => 'Palhalmai Orszagos Büntetés-végrehajtási Intézet',
+         'nev' => 'Pálhalmai Országos Büntetés-végrehajtási Intézet',
          'agglomeracio' => 2,
          'regio' => 'konvergencia',
          'tipus' => 'bv',
       ]);
       DB::table('megvalositasi_helyszins')->insert([
          'intezet' => 31,
-         'nev' => 'Melykut',
+         'nev' => 'Mélykút',
          'agglomeracio' => null,
          'regio' => null,
          'tipus' => null,
@@ -261,21 +261,21 @@ class MegvalositasiHelyszinSeeder extends Seeder
       ]);
       DB::table('megvalositasi_helyszins')->insert([
          'intezet' => null,
-         'nev' => 'Somogy Vármegyei Büntetés-végrehajtasi Intézet',
+         'nev' => 'Somogy Vármegyei Büntetés-végrehajtási Intézet',
          'agglomeracio' => 2,
          'regio' => 'konvergencia',
          'tipus' => 'bv',
       ]);
       DB::table('megvalositasi_helyszins')->insert([
          'intezet' => null,
-         'nev' => 'Sopronkohidai Fegyház es Börtön',
+         'nev' => 'Sopronkőhidai Fegyház es Börtön',
          'agglomeracio' => 1,
          'regio' => 'konvergencia',
          'tipus' => 'bv',
       ]);
       DB::table('megvalositasi_helyszins')->insert([
          'intezet' => null,
-         'nev' => 'Szabolcs-Szatmar-Bereg Vármegyei Büntetés-végrehajtasi Intézet',
+         'nev' => 'Szabolcs-Szatmár-Bereg Vármegyei Büntetés-végrehajtási Intézet',
          'agglomeracio' => 5,
          'regio' => 'konvergencia',
          'tipus' => 'bv',
@@ -310,28 +310,28 @@ class MegvalositasiHelyszinSeeder extends Seeder
       ]);
       DB::table('megvalositasi_helyszins')->insert([
          'intezet' => null,
-         'nev' => 'Szombathelyi Orszagos Büntetés-végrehajtási Intézet',
+         'nev' => 'Szombathelyi Országos Büntetés-végrehajtási Intézet',
          'agglomeracio' => 1,
          'regio' => 'konvergencia',
          'tipus' => 'bv',
       ]);
       DB::table('megvalositasi_helyszins')->insert([
          'intezet' => null,
-         'nev' => 'Tiszalöki Orszagos Büntetés-végrehajtási Intézet',
+         'nev' => 'Tiszalöki Országos Büntetés-végrehajtási Intézet',
          'agglomeracio' => 5,
          'regio' => 'konvergencia',
          'tipus' => 'bv',
       ]);
       DB::table('megvalositasi_helyszins')->insert([
          'intezet' => null,
-         'nev' => 'Tököli Orszagos Büntetés-végrehajtási Intézet',
+         'nev' => 'Tököli Országos Büntetés-végrehajtási Intézet',
          'agglomeracio' => 2,
          'regio' => 'konvergencia',
          'tipus' => 'bv',
       ]);
       DB::table('megvalositasi_helyszins')->insert([
          'intezet' => null,
-         'nev' => 'Tolna Vármegyei Büntetés-végrehajtasi Intézet',
+         'nev' => 'Tolna Vármegyei Büntetés-végrehajtási Intézet',
          'agglomeracio' => 2,
          'regio' => 'konvergencia',
          'tipus' => 'bv',
@@ -345,14 +345,14 @@ class MegvalositasiHelyszinSeeder extends Seeder
       ]);
       DB::table('megvalositasi_helyszins')->insert([
          'intezet' => null,
-         'nev' => 'Veszprém Vármegyei Büntetés-végrehajtasi Intézet',
+         'nev' => 'Veszprém Vármegyei Büntetés-végrehajtási Intézet',
          'agglomeracio' => 1,
          'regio' => 'konvergencia',
          'tipus' => 'bv',
       ]);
       DB::table('megvalositasi_helyszins')->insert([
          'intezet' => null,
-         'nev' => 'Zala Vármegyei Büntetés-végrehajtasi Intézet',
+         'nev' => 'Zala Vármegyei Büntetés-végrehajtási Intézet',
          'agglomeracio' => 1,
          'regio' => 'konvergencia',
          'tipus' => 'bv',
