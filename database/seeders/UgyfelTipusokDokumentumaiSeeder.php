@@ -26,7 +26,7 @@ class UgyfelTipusokDokumentumaiSeeder extends Seeder
             ['ugyfel_tipus_id' => 3, 'dokumentum_tipus_id' => 4],
             ['ugyfel_tipus_id' => 3, 'dokumentum_tipus_id' => 5],
             ['ugyfel_tipus_id' => 3, 'dokumentum_tipus_id' => 8],
-            ['ugyfel_tipus_id' => 4, 'dokumentum_tipus_id' => 9],
+        
             ['ugyfel_tipus_id' => 4, 'dokumentum_tipus_id' => 3],
             ['ugyfel_tipus_id' => 4, 'dokumentum_tipus_id' => 4],
             ['ugyfel_tipus_id' => 4, 'dokumentum_tipus_id' => 5],
@@ -61,7 +61,7 @@ class UgyfelTipusokDokumentumaiSeeder extends Seeder
             ['ugyfel_tipus_id' => 15, 'dokumentum_tipus_id' => 12],
             ['ugyfel_tipus_id' => 15, 'dokumentum_tipus_id' => 13],
             ['ugyfel_tipus_id' => 15, 'dokumentum_tipus_id' => 14],
-            ['ugyfel_tipus_id' => 15, 'dokumentum_tipus_id' => 8],
+
 
         ]);
     }
