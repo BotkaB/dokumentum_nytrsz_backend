@@ -96,6 +96,6 @@ Route::middleware(['auth:sanctum'])
     Route::middleware(['auth:sanctum', 'statisztikaMegtekinto'])
     
     ->group(function () {
-        Route::get('users', [UserController::class, 'index']);
+       // Route::get('users', [UserController::class, 'index']);
     });
 

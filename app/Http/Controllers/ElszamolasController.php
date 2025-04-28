@@ -6,7 +6,7 @@ use App\Models\Elszamolas;
 use App\Http\Requests\ElszamolasRequest; 
 use Illuminate\Http\Request;
 
-class ElszamolasokController extends Controller
+class ElszamolasController extends Controller
 {
    
     public function createElszamolas(ElszamolasRequest $request)
